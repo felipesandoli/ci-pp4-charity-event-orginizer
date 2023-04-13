@@ -1,1 +1,1 @@
-web: gunicorn nextdoorcharity.wsgi:application
+web: gunicorn nextdoorcharity.wsgi
