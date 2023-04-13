@@ -37,7 +37,7 @@ DEBUG = True
 if development:
     ALLOWED_HOSTS = ['127.0.0.1']
 else:
-    ALLOWED_HOSTS = [os.environ.get('HEROKU_HOST')]
+    ALLOWED_HOSTS = [os.environ.get('HEROKU_APP')]
 
 
 # Application definition
@@ -95,7 +95,7 @@ if development:
     }
 else:
     DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 
