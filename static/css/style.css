@@ -1,0 +1,50 @@
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Navbar */
+
+.navbar {
+    font-family: 'Varela Round', sans-serif;
+    background-color: #dde8ea;
+}
+
+.navbar-brand {
+    text-align: right;
+    padding: 5px 15px;
+    color: #2a484e;
+}
+
+.navbar-brand h1 {
+    font-size: 2rem;
+}
+
+.navbar-brand h2 {
+    font-size: 1.5rem;
+}
+
+.nav-item a {
+    font-size: 1.25rem;
+    color: #2b7375;
+}
+
+/* Call to action - create an event */
+
+.action-call {
+    color: #08bd05 !important;
+    font-weight: 900;
+}
+
+
+/* Media Queries */
+
+@media screen and (max-width: 768px) {
+    .nav-item {
+        border-right: 1px solid #2a484e;
+        border-left: 1px solid #2a484e;
+        padding: 0 15px;
+    }
+    .nav-item:first-child, .nav-item:last-child {
+        border: 1px groove #2a484e;
+    }
+}
