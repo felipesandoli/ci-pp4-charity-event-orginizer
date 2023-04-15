@@ -14,7 +14,7 @@ from pathlib import Path
 import dj_database_url
 import os
 
-# Setting development variable to control settings based on Hello Django walkthrough project
+# Setting development variable to control settings as per Hello Django project
 if os.path.exists("env.py"):
     import env
     development = True
@@ -51,7 +51,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     'eventorganizer'
 ]
 
@@ -89,6 +91,7 @@ WSGI_APPLICATION = 'nextdoorcharity.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# Setup database as per Hello Django project
 if development:
     DATABASES = {
         'default': {
@@ -138,7 +141,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+# setup staticfiles as per I think therefore I blog project
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
