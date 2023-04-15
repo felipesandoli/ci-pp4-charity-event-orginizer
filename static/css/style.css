@@ -35,6 +35,24 @@ body {
     font-weight: 900;
 }
 
+/* Footer */
+
+footer {
+    background-color: #2a484e;
+    font-size: 1.25rem;
+    color: #dde8ea;
+}
+
+footer .row {
+    min-height: 100px;
+}
+
+footer a {
+    font-size: 2rem;
+    color: #dde8ea;
+    padding: 0 5px;
+}
+
 
 /* Media Queries */
 
