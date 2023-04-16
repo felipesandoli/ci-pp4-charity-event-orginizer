@@ -1,5 +1,6 @@
 body {
     font-family: 'Nunito', sans-serif;
+    font-size: 1.25rem;
 }
 
 /* Navbar */
@@ -33,6 +34,36 @@ body {
 .action-call {
     color: #08bd05 !important;
     font-weight: 900;
+}
+
+/* Login page */
+
+.login-container {
+    height: 60vh;
+    max-width: 1200px;
+    padding: 30px;
+}
+
+.login-container input {
+    width: 200px;
+    font-size: 1rem;
+}
+
+
+.login-button {
+    height: 50px;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    background-color: #72daba;
+    color: #2a484e;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.login-button:hover {
+    color: #72daba;
+    background-color: #2a484e;
 }
 
 /* Footer */

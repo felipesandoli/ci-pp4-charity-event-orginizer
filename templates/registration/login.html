@@ -1,12 +1,42 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <form action="{% url 'login' %}" method="POST">
-        {% csrf_token %}
-        {{ form.username.label_tag }}
-        {{ form.username }}
-        {{ form.password.label_tag }}
-        {{ form.password }}
-        <input type="submit" value="login">
-    </form>
+    <div class="container-fluid login-container">
+        <div class="row justify-content-sm-center pt-3">
+            <div class="col-md-6">
+                <h3>Sign In</h3>
+                <p>Welcome back! Login to be able to create new events or register for existing ones.</p>
+            </div>
+        </div>
+        <div class="row justify-content-sm-center pt-3">
+            <div class="col-md-6">
+                <form action="{% url 'login' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="container-fluid">
+                        <div class="row pt-3">
+                            <div class="col-md-3">
+                                {{ form.username.label_tag }}
+                            </div>
+                            <div class="col-md-9">
+                                {{ form.username }}
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <div class="col-md-3">
+                                {{ form.password.label_tag }}
+                            </div>
+                            <div class="col-md-9">
+                                {{ form.password }}
+                            </div>
+                        </div>
+                        <div class="row pt-5">
+                            <div class="col-12">
+                                <button type="submit" class="login-button">Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
