@@ -1,7 +1,9 @@
-body {
+body: {
     font-family: 'Nunito', sans-serif;
     font-size: 1.25rem;
+    color: #2a484e;
 }
+
 
 /* Navbar */
 
@@ -42,6 +44,7 @@ body {
     height: 60vh;
     max-width: 1200px;
     padding: 30px;
+    color: #2a484e;
 }
 
 .login-container input {
