@@ -38,11 +38,11 @@
                         </li>
                         <li class="nav-item">
                             {% if user.is_authenticated %}
-                                <a href="{% url 'logout' %}" class="nav-link">
+                                <a href="{% url 'logout' %}" class="nav-link" aria-label="Logout of your account">
                                     Logout
                                 </a>
                             {% else %}
-                                <a href="{% url 'login' %}" class="nav-link">
+                                <a href="{% url 'login' %}" class="nav-link" aria-label="Opens login page">
                                     Login
                                 </a>
                             {% endif %}
@@ -65,9 +65,9 @@
                 <span>&copy Carlos Felipe Capobianco Sandoli</span>
             </div>
             <div class="col-md-6">
-                <a href=""><i class="fa-brands fa-linkedin"></i></a>
-                <a href=""><i class="fa-brands fa-github"></i></a>
-                <a href=""><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/felipesandoli/" target="_blank" aria-label="Opens site owner linkedin profile in a new tab"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/felipesandoli" target="_blank" aria-label="Opens site owner github profile in a new tab"><i class="fa-brands fa-github"></i></a>
+                <a href="" target="_blank"><i class="fa-solid fa-envelope"></i></a>
             </div>
         </div>
     </footer>
