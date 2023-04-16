@@ -40,20 +40,20 @@ body: {
 
 /* Login page */
 
-.login-container {
+.auth-container {
     height: 60vh;
     max-width: 1200px;
     padding: 30px;
     color: #2a484e;
 }
 
-.login-container input {
+.auth-container input {
     width: 200px;
     font-size: 1rem;
 }
 
 
-.login-button {
+.auth-button {
     height: 50px;
     width: 100px;
     border: none;
@@ -64,7 +64,7 @@ body: {
     font-weight: 600;
 }
 
-.login-button:hover {
+.auth-button:hover {
     color: #72daba;
     background-color: #2a484e;
 }
