@@ -52,6 +52,9 @@
             </div>
         </nav>
     </header>
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
     {% if form.errors %}
         <div class="container pt-5">
             <div class="row justify-content-center">

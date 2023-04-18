@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import View, generic
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.messages import constant as messages
+from django.contrib import messages
 from django.urls import reverse_lazy
 
 
@@ -23,4 +23,5 @@ class Logout(View):
 
     def get(self, request):
         logout(request)
+        messages.add_message(request, messages.SUCCESS, "You have been successfully logged out")
         return redirect("homepage")
