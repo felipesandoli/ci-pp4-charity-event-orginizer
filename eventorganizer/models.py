@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from location_field.models.plain import PlainLocationField
 
 
 class Event(models.Model):
@@ -28,6 +29,10 @@ class Event(models.Model):
     description = models.TextField(
         help_text='Enter a full description of your event'
     )
+    address = models.CharField(max_length=100)
+    city = models.CharField(max_length=50)
+    country = models.CharField(max_length=50)
+    location = PlainLocationField(based_fields=['address', 'city', 'country'])
 
     def __str__(self):
         return f"{self.name} by {self.owner}"
