@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'cloudinary_storage',
     'django.contrib.staticfiles',
+    'location_field.apps.DefaultConfig',
     'cloudinary',
     'eventorganizer'
 ]
