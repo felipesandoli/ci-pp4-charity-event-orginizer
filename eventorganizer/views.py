@@ -4,12 +4,20 @@ from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.urls import reverse_lazy
+from .models import Event
 
 
 class HomePage(View):
 
     def get(self, request):
-        return render(request, 'index.html')
+        queryset = Event.objects.filter(approved=True)
+        return render(
+            request,
+            'index.html',
+            {
+                "queryset": queryset
+            }
+        )
 
 
 # Signup following learndjango tutorial  

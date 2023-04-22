@@ -1,6 +1,12 @@
-body: {
+main {
     font-family: 'Nunito', sans-serif;
     font-size: 1.25rem;
+    color: #2a484e;
+    padding: 15px;
+}
+
+main * {
+    font-family: 'Nunito', sans-serif;
     color: #2a484e;
 }
 
