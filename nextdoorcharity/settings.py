@@ -139,13 +139,14 @@ STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+LOCATION_FIELD_PATH = 'https://res.cloudinary.com/dnyznztuw/raw/upload/v1681987525/static/location_field'
 
 LOCATION_FIELD = {
     'provider.google.api': '//maps.google.com/maps/api/js?sensor=false',
     'provider.google.api_key': os.environ.get("MAPS_API_KEY"),
     'provider.google.api_libraries': '',
     'resources.media': {
-        'js': 'https://res.cloudinary.com/dnyznztuw/raw/upload/v1682187826/static/js/location_field/js/form.f5b2442cb147.js'
+        'js': [LOCATION_FIELD_PATH + '/js/form.f5b2442cb147.js',]
 
     }
 }
