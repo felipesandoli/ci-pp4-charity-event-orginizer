@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'location_field.apps.DefaultConfig',
+    'location_field.static',
     'cloudinary',
     'eventorganizer'
 ]
@@ -95,12 +96,6 @@ WSGI_APPLICATION = 'nextdoorcharity.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
-}
-
-LOCATION_FIELD = {
-    'provider.google.api': '//maps.google.com/maps/api/js?sensor=false',
-    'provider.google.api_key': os.environ.get("MAPS_API_KEY"),
-    'provider.google.api_libraries': ''
 }
 
 # Password validation
@@ -144,6 +139,12 @@ STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+LOCATION_FIELD = {
+    'provider.google.api': '//maps.google.com/maps/api/js?sensor=false',
+    'provider.google.api_key': os.environ.get("MAPS_API_KEY"),
+    'provider.google.api_libraries': ''
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

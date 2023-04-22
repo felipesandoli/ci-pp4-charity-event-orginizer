@@ -4,20 +4,20 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <h3><strong>Upcomming events</strong></h3>
+                <h3><strong>Upcoming events</strong></h3>
             </div>
         </div>
         <div class="row">
             <div id="event-carousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner w-80" role="lsitbox">
                     <div class="carousel-item active" role="option">
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-xl-3 mx-1">
                             placeholder
                         </div>
                     </div>
                     {% for event in queryset %}
                         <div class="carousel-item" role="option">
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-xl-3 mx-1">
                                <div class="card">
                                     <img src="{{ event.cover_image.url }}" alt="event cover image" class="card-img-top">
                                     <div class="card-body">
