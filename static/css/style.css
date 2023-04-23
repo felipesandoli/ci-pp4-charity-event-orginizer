@@ -75,6 +75,12 @@ main * {
     background-color: #2a484e;
 }
 
+/* Making sure entire create event form is displayed */
+
+.create-event-form-container {
+    margin-bottom: 125px;
+}
+
 /* Footer */
 
 footer {
@@ -136,6 +142,7 @@ footer a {
     .carousel-inner .carousel-item-prev {
       transform: translateX(-33.33%);
     }
+
 }
 
 /* Carousel displaying 4 items on large screens */
