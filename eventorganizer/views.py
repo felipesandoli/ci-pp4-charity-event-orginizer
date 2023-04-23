@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.urls import reverse_lazy
 from .models import Event
+from .forms import EventForm
 
 
 class HomePage(View):
@@ -33,3 +34,11 @@ class Logout(View):
         logout(request)
         messages.add_message(request, messages.SUCCESS, "You have been successfully logged out")
         return redirect("homepage")
+    
+
+class CreateEvent(View):
+    
+    def get(self, request, *args, **kwargs):
+        event_form = EventForm()
+        return render(
+            request, "event_form.html", {"event_form": event_form})

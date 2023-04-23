@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from location_field.models.plain import PlainLocationField
 from cloudinary.models import CloudinaryField
 from django.utils import timezone
+from django.urls import reverse
 
 
 class Event(models.Model):

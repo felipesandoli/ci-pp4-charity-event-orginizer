@@ -56,8 +56,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'location_field.apps.DefaultConfig',
     'cloudinary',
+    'crispy_forms',
+    'crispy_bootstrap4',
     'eventorganizer'
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

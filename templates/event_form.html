@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+    <form action="add" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <!-- Form layout inspired by eventbrite event creation page -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <h3>Basic Information</h3>
+                        <label for="id_name">Event name:</label>
+                        {{ event_form | crispy }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}
