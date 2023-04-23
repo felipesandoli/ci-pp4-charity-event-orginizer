@@ -19,7 +19,12 @@
                         <div class="carousel-item" role="option">
                             <div class="col-md-4 col-xl-3 mx-1">
                                <div class="card">
-                                    <img src="{{ event.cover_image.url }}" alt="event cover image" class="card-img-top">
+                                    <!-- Display default image for events with no submitted image based on I think therefore I blog walkthrough project -->
+                                    {% if 'default_image' in event.cover_image.url %}
+                                        <img src="https://res.cloudinary.com/dnyznztuw/image/upload/v1682267748/nextdoor-charity_bo8wt8.jpg" alt="default event cover image" class="card-img-top">
+                                    {% else %}
+                                        <img src="{{ event.cover_image.url }}" alt="event cover image" class="card-img-top">
+                                    {% endif %}
                                     <div class="card-body">
                                         <h4 class="card-title">{{ event.name }}</h4>
                                         <p class="card-subtitle text-muted">{{ event.event_start }} - {{ event.event_end }}</p>

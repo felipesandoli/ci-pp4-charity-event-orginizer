@@ -45,7 +45,7 @@ class Event(models.Model):
     participants = models.ManyToManyField(
         User, blank=True, related_name='event_participants'
     )
-    cover_image = CloudinaryField('image', default='default_image')
+    cover_image = CloudinaryField('image', default="default_image")
 
     class Meta:
         ordering = ['event_start']

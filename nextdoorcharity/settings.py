@@ -147,7 +147,6 @@ LOCATION_FIELD = {
     'provider.google.api_libraries': '',
     'resources.media': {
         'js': [LOCATION_FIELD_PATH + '/js/form.f5b2442cb147.js',]
-
     }
 }
 
