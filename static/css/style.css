@@ -59,9 +59,8 @@ main * {
 }
 
 
-.auth-button {
+.auth-button, .submit-button {
     height: 50px;
-    width: 100px;
     border: none;
     border-radius: 5px;
     background-color: #72daba;
@@ -70,7 +69,15 @@ main * {
     font-weight: 600;
 }
 
-.auth-button:hover {
+.auth-button {
+    width: 100px;
+}
+
+.submit-button {
+    width: 150px;
+}
+
+.auth-button:hover, .submit-button:hover {
     color: #72daba;
     background-color: #2a484e;
 }
