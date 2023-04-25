@@ -8,20 +8,14 @@ from .models import Event
 from .forms import EventForm
 
 
-class HomePage(View):
-
-    def get(self, request):
-        queryset = Event.objects.filter(approved=True)
-        return render(
-            request,
-            'index.html',
-            {
-                "queryset": queryset
-            }
-        )
+class HomePage(generic.ListView):
+    model = Event
+    queryset = Event.objects.filter(approved=True, archived=False)
+    paginate_by = 16
+    template_name = 'index.html'
 
 
-# Signup following learndjango tutorial  
+# Signup following learndjango tutorial
 class SignUp(generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
@@ -32,12 +26,14 @@ class Logout(View):
 
     def get(self, request):
         logout(request)
-        messages.add_message(request, messages.SUCCESS, "You have been successfully logged out")
+        messages.add_message(
+            request, messages.SUCCESS, "You have been successfully logged out"
+        )
         return redirect("homepage")
-    
+
 
 class CreateEvent(View):
-    
+
     def get(self, request, *args, **kwargs):
         event_form = EventForm()
         return render(
