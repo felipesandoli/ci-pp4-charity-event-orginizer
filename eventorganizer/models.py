@@ -1,9 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-from location_field.models.plain import PlainLocationField
 from cloudinary.models import CloudinaryField
 from django.utils import timezone
-from django.urls import reverse
 
 
 class Event(models.Model):
@@ -35,7 +33,6 @@ class Event(models.Model):
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
-    location = PlainLocationField(based_fields=['address', 'city', 'country'])
     event_start = models.DateTimeField(default=timezone.now)
     event_end = models.DateTimeField(default=timezone.now)
     approved = models.BooleanField(default=False)
