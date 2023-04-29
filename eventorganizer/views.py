@@ -34,24 +34,34 @@ class Logout(View):
 
 class CreateEvent(View):
 
-    def get(self, request, *args, **kwargs):
-        event_form = EventForm()
-        return render(
-            request, "event_form.html", {"event_form": event_form})
+    def get(self, request):
+        if request.user.is_authenticated:
+            event_form = EventForm()
+            return render(
+                request, "event_form.html", {"event_form": event_form})
+        else:
+            messages.add_message(
+                request, messages.ERROR, "You need to be logged in to create an event."
+            )
+            return redirect("login")
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request):
         event_form = EventForm(request.POST)
 
         if event_form.is_valid():
             event_form.instance.owner = request.user
             event_form.save()
             messages.add_message(
-                request, messages.SUCCESS, "Your event has been created and is now pending approval."
+                request,
+                messages.SUCCESS,
+                "Your event has been created and is now pending approval."
             )
             return redirect("homepage")
         else:
             messages.add_message(
-                request, messages.ERROR, "Something went wrong. Please try again"
+                request,
+                messages.ERROR,
+                "Something went wrong. Please try again"
             )
             event_form = EventForm()
             return render(
