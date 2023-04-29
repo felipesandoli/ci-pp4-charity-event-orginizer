@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View, generic
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
@@ -41,7 +41,9 @@ class CreateEvent(View):
                 request, "event_form.html", {"event_form": event_form})
         else:
             messages.add_message(
-                request, messages.ERROR, "You need to be logged in to create an event."
+                request,
+                messages.ERROR,
+                "You need to be logged in to create an event."
             )
             return redirect("login")
 
@@ -67,3 +69,8 @@ class CreateEvent(View):
             return render(
                 request, "event_form.html", {"event_form": event_form}
             )
+
+
+class EventInformation(generic.DetailView):
+    model = Event
+    template_name = "event_information.html"
