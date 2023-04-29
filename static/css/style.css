@@ -37,6 +37,10 @@ main * {
     color: #2b7375;
 }
 
+.navbar-toggler-icon {
+    color: #2a484e;
+}
+
 /* Call to action - create an event */
 
 .action-call {
