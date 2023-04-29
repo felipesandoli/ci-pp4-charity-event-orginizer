@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+    <div class="px-3 py-3">
+        {% if 'default_image' in event.cover_image.url %}
+            <img src="https://res.cloudinary.com/dnyznztuw/image/upload/v1682805988/volunteers-needed_q9acog.jpg" class="event-image" alt="Event Image">
+        {% else %}
+            <img src="{{ event.cover_image.url }}" class="event-image" alt="Event Image">
+    </div>
 {% endblock %}
