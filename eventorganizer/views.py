@@ -38,3 +38,22 @@ class CreateEvent(View):
         event_form = EventForm()
         return render(
             request, "event_form.html", {"event_form": event_form})
+
+    def post(self, request, *args, **kwargs):
+        event_form = EventForm(request.POST)
+
+        if event_form.is_valid():
+            event_form.instance.owner = request.user
+            event_form.save()
+            messages.add_message(
+                request, messages.SUCCESS, "Your event has been created and is now pending approval."
+            )
+            return redirect("homepage")
+        else:
+            messages.add_message(
+                request, messages.ERROR, "Something went wrong. Please try again"
+            )
+            event_form = EventForm()
+            return render(
+                request, "event_form.html", {"event_form": event_form}
+            )
