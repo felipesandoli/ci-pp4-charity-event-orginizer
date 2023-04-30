@@ -3,6 +3,7 @@ main {
     font-size: 1.25rem;
     color: #2a484e;
     padding: 15px;
+    margin-bottom: 150px;
 }
 
 main * {
@@ -105,6 +106,32 @@ main * {
     font-size: 2.5em;
     text-transform: uppercase;
     font-weight: 900;
+}
+
+.event-info-btn {
+    background-color: #72daba;
+    width: 250px;
+    height: 50px;
+    text-decoration: none;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    color: #2a484e;
+    font-weight: 600;
+}
+
+.event-info-btn:hover {
+    color: #72daba;
+    background-color: #2a484e;
+}
+
+.delete-btn {
+    background-color: #ffffff;
+    color: #ff5042 !important;
+}
+
+.delete-btn:hover {
+    background-color: #dde8ea;
 }
 
 /* Footer */

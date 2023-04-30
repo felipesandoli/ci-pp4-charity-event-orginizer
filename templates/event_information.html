@@ -16,6 +16,40 @@
                 </h3>
                 <p>{{ event.event_start.date }}</p>
             </div>
+            {% if user.is_authenticated %}
+                <div class="col-md-4">
+                    {% if user != event.owner %}
+                    <button href="" class="d-block event-info-btn">Sign Up to this event</button>
+                    {% else  %}
+                    <button href="" class="d-block event-info-btn">Edit Event</button>
+                    <button href="" class="d-block event-info-btn delete-btn">Delete Event</button>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="row pt-3">
+            <div class="col">
+                <p>{{ event.summary }}</p>
+            </div>
+        </div>
+        <div class="row pt-3">
+            <div class="col-12">
+                <h4>About this event</h4>
+            </div>
+            <div class="col-12">
+                <p>{{ event.description }}</p>
+            </div>
+        </div>
+        <div class="row pt-3">
+            <div class="col-12">
+                <h4>Date, Time & Location</h4>
+            </div>
+            <div class="col-md-6">
+                <i class="fa-solid fa-calendar"></i> {{ event.event_start }} - {{ event.event_end }}
+            </div>
+            <div class="col-md-6">
+                <i class="fa-solid fa-location-dot"></i> {{ event.address }}, {{ event.city }}, {{ event.country }}
+            </div>
         </div>
     </div>
 {% endblock %}
