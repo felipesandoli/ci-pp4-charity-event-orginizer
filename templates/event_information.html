@@ -24,7 +24,9 @@
                     <a href="{% url 'edit_event' event_id=event.pk %}">
                         <button class="d-block event-info-btn">Edit Event</button>
                     </a>
-                    <button class="d-block event-info-btn delete-btn">Delete Event</button>
+                    <a href="{% url 'delete_event' event_id=event.pk %}">
+                        <button class="d-block event-info-btn delete-btn">Delete Event</button>
+                    </a>
                     {% endif %}
                 </div>
             {% endif %}

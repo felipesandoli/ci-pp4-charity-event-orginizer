@@ -108,3 +108,11 @@ class EditEvent(View):
             )
 
             return redirect("homepage")
+
+
+class DeleteEvent(View):
+
+    def get(self, request, event_id):
+        event = get_object_or_404(Event, id=event_id)
+        event.delete()
+        return redirect("homepage")
