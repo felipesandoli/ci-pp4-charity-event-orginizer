@@ -21,10 +21,9 @@
                     {% if user != event.owner %}
                     <button class="d-block event-info-btn">Sign Up to this event</button>
                     {% else  %}
-                    <form method="get" action="{{ event.pk }}/edit">
-                        {% csrf_token %}
+                    <a href="{% url 'edit_event' event_id=event.pk %}">
                         <button class="d-block event-info-btn">Edit Event</button>
-                    </form>
+                    </a>
                     <button class="d-block event-info-btn delete-btn">Delete Event</button>
                     {% endif %}
                 </div>

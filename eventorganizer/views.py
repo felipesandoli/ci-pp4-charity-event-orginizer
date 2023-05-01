@@ -91,3 +91,20 @@ class EditEvent(View):
                 request, messages.ERROR, "You cannot edit an event you do not own."
             )
             return redirect("homepage")
+        
+    def post(self, request, event_id):
+        event = get_object_or_404(Event, id=event_id)
+        event_form = EventForm(instance=event)
+        event_form = EventForm(request.POST, instance=event)
+
+        if event_form.is_valid:
+            event_form.instance.approved = False
+            event_form.instance.owner = request.user
+            event_form.save()
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                "Your event has been updated and is now awaiting approval."
+            )
+
+            return redirect("homepage")
