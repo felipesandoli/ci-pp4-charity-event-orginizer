@@ -84,4 +84,10 @@ class EditEvent(View):
         event_form = EventForm(instance=event)
         new_event = False
 
-        return render(request, "event_form.html", {"event_form": event_form, "new_event": new_event})
+        if request.user == event.owner:
+            return render(request, "event_form.html", {"event_form": event_form, "new_event": new_event})
+        else:
+            messages.add_message(
+                request, messages.ERROR, "You cannot edit an event you do not own."
+            )
+            return redirect("homepage")
