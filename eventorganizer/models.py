@@ -48,8 +48,13 @@ class Event(models.Model):
     class Meta:
         ordering = ['event_start']
 
+
     def __str__(self):
         return f"{self.name} by {self.owner}"
+    
+    @property
+    def full_address(self):
+        return f"{self.address.upper()}, {self.city.capitalize()}, {self.country.capitalize()}"
 
     def number_of_likes(self):
         return self.likes.count()

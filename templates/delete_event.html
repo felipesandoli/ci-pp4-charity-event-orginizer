@@ -1,10 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Delete</button>
-    </form>
-
+    <div class="container-fluid px-3 py-3 bg-light">
+        <div class="row">
+            <div class="col-md-8 mt-5">
+                <h3>Delete</h3>
+                <p>Are you sure you want to delete this event?</p>
+                <table>
+                    <tr>
+                        <td>Event name:</td>
+                        <td class="px-3">{{ event.name.upper }}</td>
+                    </tr>
+                    <tr>
+                        <td>Event Address:</td>
+                        <td class="px-3">{{ event.full_address }}</td>
+                    </tr>
+                    <tr>
+                        <td>Event Date and Time:</td>
+                        <td class="px-3">{{ event.event_start }} - {{ event.event_end }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4 mt-5">
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="event-info-btn delete-btn">Delete</button>
+                </form>
+                <a href="" class="event-btn-a">
+                    <button class="d-block event-info-btn">Back to My Events</button>
+                </a>
+            </div>
+        </div>
+    </div>
 {% endblock %}
