@@ -19,12 +19,14 @@
             {% if user.is_authenticated %}
                 <div class="col-md-4">
                     {% if user != event.owner %}
-                    <button class="d-block event-info-btn">Sign Up to this event</button>
+                    <a href="" class="event-btn-a">
+                        <button class="d-block event-info-btn">Sign Up to this event</button>
+                    </a>
                     {% else  %}
-                    <a href="{% url 'edit_event' event_id=event.pk %}">
+                    <a href="{% url 'edit_event' event_id=event.pk %}" class="event-btn-a">
                         <button class="d-block event-info-btn">Edit Event</button>
                     </a>
-                    <a href="{% url 'delete_event' event_id=event.pk %}">
+                    <a href="{% url 'delete_event' event_id=event.pk %}" class="event-btn-a">
                         <button class="d-block event-info-btn delete-btn">Delete Event</button>
                     </a>
                     {% endif %}

@@ -112,12 +112,15 @@ main * {
     background-color: #72daba;
     width: 250px;
     height: 50px;
-    text-decoration: none;
     margin: 5px;
     border: none;
     border-radius: 5px;
     color: #2a484e;
     font-weight: 600;
+}
+
+.event-btn-a {
+    text-decoration: none;
 }
 
 .event-info-btn:hover {
