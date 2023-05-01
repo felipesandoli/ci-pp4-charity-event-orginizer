@@ -12,5 +12,6 @@ urlpatterns = [
         'event/<pk>',
         views.EventInformation.as_view(),
         name='event_information'
-    )
+    ),
+    path('event/<int:event_id>/edit', views.EditEvent.as_view(), name='edit_event')
 ]

@@ -19,10 +19,13 @@
             {% if user.is_authenticated %}
                 <div class="col-md-4">
                     {% if user != event.owner %}
-                    <button href="" class="d-block event-info-btn">Sign Up to this event</button>
+                    <button class="d-block event-info-btn">Sign Up to this event</button>
                     {% else  %}
-                    <button href="" class="d-block event-info-btn">Edit Event</button>
-                    <button href="" class="d-block event-info-btn delete-btn">Delete Event</button>
+                    <form method="get" action="{{ event.pk }}/edit">
+                        {% csrf_token %}
+                        <button class="d-block event-info-btn">Edit Event</button>
+                    </form>
+                    <button class="d-block event-info-btn delete-btn">Delete Event</button>
                     {% endif %}
                 </div>
             {% endif %}

@@ -58,7 +58,13 @@
                         </div>
                         <div class="row pt-5">
                             <div class="col">
-                                <button type="submit" class="submit-button">Create Event</button>
+                                <button type="submit" class="submit-button">
+                                    {% if new_event %}
+                                        Create Event
+                                    {% else %}
+                                        Save
+                                    {% endif %}
+                                </button>
                             </div>
                         </div>
                     </div>

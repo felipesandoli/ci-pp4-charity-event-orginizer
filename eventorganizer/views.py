@@ -37,8 +37,9 @@ class CreateEvent(View):
     def get(self, request):
         if request.user.is_authenticated:
             event_form = EventForm()
+            new_event = True
             return render(
-                request, "event_form.html", {"event_form": event_form})
+                request, "event_form.html", {"event_form": event_form, "new_event": new_event})
         else:
             messages.add_message(
                 request,
@@ -74,3 +75,13 @@ class CreateEvent(View):
 class EventInformation(generic.DetailView):
     model = Event
     template_name = "event_information.html"
+
+
+class EditEvent(View):
+
+    def get(self, request, event_id):
+        event = get_object_or_404(Event, id=event_id)
+        event_form = EventForm(instance=event)
+        new_event = False
+
+        return render(request, "event_form.html", {"event_form": event_form, "new_event": new_event})
