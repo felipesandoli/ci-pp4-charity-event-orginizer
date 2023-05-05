@@ -54,3 +54,12 @@ class TestEventInformationlView(TestCase):
         test_event = Event.objects.first()
         response = self.client.get(f'/event/{test_event.id}')
         self.assertRedirects(response, '/', 302)
+
+    def test_event_information_redirect_event_archived(self):
+        self.client.login(username='testuser', password='testpassword')
+        test_event = Event.objects.first()
+        test_event.approved = True
+        test_event.archived = True
+        test_event.save()
+        response = self.client.get(f'/event/{test_event.id}')
+        self.assertRedirects(response, '/', 302)

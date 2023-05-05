@@ -80,7 +80,7 @@ class EventInformation(View):
     def get(self, request, event_id):
         event = get_object_or_404(Event, id=event_id)
 
-        if request.user.is_authenticated and event.approved:
+        if request.user.is_authenticated and event.approved and not event.archived:
             return render(request, "event_information.html", {"event": event})
         elif not request.user.is_authenticated:
             messages.add_message(
@@ -94,6 +94,13 @@ class EventInformation(View):
                 request,
                 messages.ERROR,
                 'The event you are trying to see is pending approval'
+            )
+            return redirect('homepage')
+        elif event.archived:
+            messages.add_message(
+                request,
+                messages.ERROR,
+                'The event you are trying to see has been archived and is no longer available'
             )
             return redirect('homepage')
 
