@@ -39,7 +39,10 @@ class CreateEvent(View):
             event_form = EventForm()
             new_event = True
             return render(
-                request, "event_form.html", {"event_form": event_form, "new_event": new_event})
+                request,
+                "event_form.html",
+                {"event_form": event_form, "new_event": new_event}
+            )
         else:
             messages.add_message(
                 request,
@@ -72,9 +75,25 @@ class CreateEvent(View):
             )
 
 
-class EventInformation(generic.DetailView):
-    model = Event
-    template_name = "event_information.html"
+# class EventInformation(generic.DetailView):
+#     model = Event
+#     template_name = "event_information.html"
+
+
+class EventInformation(View):
+
+    def get(self, request, event_id):
+        event = get_object_or_404(Event, id=event_id)
+
+        if request.user.is_authenticated:
+            return render(request, "event_information.html", {"event": event})
+        else:
+            messages.add_message(
+                request,
+                messages.ERROR,
+                'You need to be logged in to see this event'
+            )
+            return redirect('login')
 
 
 class EditEvent(View):
@@ -85,13 +104,19 @@ class EditEvent(View):
         new_event = False
 
         if request.user == event.owner:
-            return render(request, "event_form.html", {"event_form": event_form, "new_event": new_event})
+            return render(
+                request,
+                "event_form.html",
+                {"event_form": event_form, "new_event": new_event}
+            )
         else:
             messages.add_message(
-                request, messages.ERROR, "You cannot edit an event you do not own."
+                request,
+                messages.ERROR,
+                "You cannot edit an event you do not own."
             )
             return redirect("homepage")
-        
+
     def post(self, request, event_id):
         event = get_object_or_404(Event, id=event_id)
         event_form = EventForm(instance=event)

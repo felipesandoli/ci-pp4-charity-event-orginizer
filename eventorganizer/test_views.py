@@ -16,7 +16,10 @@ class TestHomepageView(TestCase):
 class TestEventInformationlView(TestCase):
 
     def test_event_information_url_and_template_logged_in(self):
-        test_user = User.objects.create_user(username='testuser', password='testpassword')
+        test_user = User.objects.create_user(
+            username='testuser',
+            password='testpassword'
+        )
         login = self.client.login(username='testuser', password='testpassword')
         test_event = Event.objects.create(
             name='test-event',
@@ -37,7 +40,10 @@ class TestEventInformationlView(TestCase):
         self.assertTemplateUsed(response, 'event_information.html')
 
     def test_event_information_redirect_not_logged_in(self):
-        test_user = User.objects.create_user(username='testuser', password='testpassword')
+        test_user = User.objects.create_user(
+            username='testuser',
+            password='testpassword'
+        )
         test_event = Event.objects.create(
             name='test-event',
             owner=test_user,
@@ -53,7 +59,4 @@ class TestEventInformationlView(TestCase):
             cover_image='default_image'
         )
         response = self.client.get(f'/event/{test_event.id}')
-        print(response.context['user'])
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'regisration/login.html')
-        self.assertEqual(str(response.context['user']), 'AnonymousUser')
+        self.assertRedirects(response, '/accounts/login/', 302)
