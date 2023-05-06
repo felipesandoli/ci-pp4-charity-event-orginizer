@@ -1,7 +1,8 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from .models import Event
+from django.urls import reverse
 from django.utils import timezone
+from .models import Event
 
 
 class TestHomepageView(TestCase):
@@ -63,3 +64,33 @@ class TestEventInformationlView(TestCase):
         test_event.save()
         response = self.client.get(f'/event/{test_event.id}')
         self.assertRedirects(response, '/', 302)
+
+
+class TestJoinEventView(TestCase):
+
+    def setUp(self):
+        test_user = User.objects.create_user(
+            username='testuser',
+            password='testpassword'
+        )
+        test_event = Event.objects.create(
+            name='test-event',
+            owner=test_user,
+            type='Fundraising',
+            category='Environmental',
+            summary='test',
+            description='test',
+            address='test',
+            approved=True,
+            city='test',
+            country='test',
+            event_start=timezone.now(),
+            event_end=timezone.now(),
+            cover_image='default_image'
+        )
+
+    def test_join_event_url_and_redirect_user_logged_in(self):
+        self.client.login(username='testuser', password='testpassword')
+        test_event = Event.objects.first()
+        response = self.client.post(f'/event/{test_event.id}/join')
+        self.assertRedirects(response, reverse('event_information', args=[test_event.id]), 302)

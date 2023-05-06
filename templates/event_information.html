@@ -19,9 +19,10 @@
             {% if user.is_authenticated %}
                 <div class="col-md-4">
                     {% if user != event.owner %}
-                    <a href="" class="event-btn-a">
-                        <button class="d-block event-info-btn">Sign Up to this event</button>
-                    </a>
+                    <form method="post" action="{% url 'join_event' event_id=event.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="d-block event-info-btn">Sign Up to this event</button>
+                    </form>
                     {% else  %}
                     <a href="{% url 'edit_event' event_id=event.pk %}" class="event-btn-a">
                         <button class="d-block event-info-btn">Edit Event</button>

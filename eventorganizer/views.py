@@ -3,7 +3,7 @@ from django.views import View, generic
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from .models import Event
 from .forms import EventForm
 
@@ -100,7 +100,8 @@ class EventInformation(View):
             messages.add_message(
                 request,
                 messages.ERROR,
-                'The event you are trying to see has been archived and is no longer available'
+                'The event you are trying to '
+                + 'see has been archived and is no longer available'
             )
             return redirect('homepage')
 
@@ -154,3 +155,10 @@ class DeleteEvent(View):
         event = get_object_or_404(Event, id=event_id)
         event.delete()
         return redirect("homepage")
+
+
+class JoinEvent(View):
+
+    def post(self, request, event_id):
+        event = get_object_or_404(Event, id=event_id)
+        return redirect(reverse('event_information', args=[event_id]))
