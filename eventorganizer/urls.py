@@ -31,6 +31,6 @@ urlpatterns = [
     path(
         'event/<int:event_id>/leave',
         views.LeaveEvent.as_view(),
-        name='leave_event'    
+        name='leave_event'
     )
 ]

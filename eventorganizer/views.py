@@ -168,7 +168,7 @@ class JoinEvent(View):
         event.participants.add(request.user)
         event.save()
         return redirect(reverse('event_information', args=[event_id]))
-    
+
 
 class LeaveEvent(View):
 
