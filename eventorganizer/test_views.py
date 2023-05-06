@@ -112,3 +112,39 @@ class TestJoinEventView(TestCase):
         user = User.objects.first()
         response = self.client.post(f'/event/{test_event.id}/join')
         self.assertEqual(user.event_participants.first(), test_event)
+
+
+class TestCancelEventParticipationView(TestCase):
+
+    def setUp(self):
+        test_user = User.objects.create_user(
+            username='testuser',
+            password='testpassword'
+        )
+        test_event = Event.objects.create(
+            name='test-event',
+            owner=test_user,
+            type='Fundraising',
+            category='Environmental',
+            summary='test',
+            description='test',
+            address='test',
+            approved=True,
+            city='test',
+            country='test',
+            event_start=timezone.now(),
+            event_end=timezone.now(),
+            cover_image='default_image'
+        )
+        test_event.participants.add(test_user)
+        test_event.save()
+
+    def test_leave_event_url_and_redirect(self):
+        self.client.login(username='testuser', password='testpassword')
+        test_event = Event.objects.first()
+        response = self.client.post(f'/event/{test_event.id}/leave')
+        self.assertRedirects(
+            response,
+            reverse('event_information', args=[test_event.id]),
+            302
+        )

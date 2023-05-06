@@ -23,7 +23,14 @@ urlpatterns = [
         views.DeleteEvent.as_view(),
         name='delete_event'
     ),
-    path('event/<int:event_id>/join',
-         views.JoinEvent.as_view(),
-         name='join_event')
+    path(
+        'event/<int:event_id>/join',
+        views.JoinEvent.as_view(),
+        name='join_event'
+    ),
+    path(
+        'event/<int:event_id>/leave',
+        views.LeaveEvent.as_view(),
+        name='leave_event'    
+    )
 ]
