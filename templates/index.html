@@ -22,7 +22,9 @@
                         <p class="card-subtitle text-muted">{{ event.event_start }} - {{ event.event_end }}</p>
                         <p class="card-text">{{ event.city }}, {{ event.country }}</p>
                         {% if user.is_authenticated %}
-                            <a href="{% url 'event_information' event.pk %}" class="event-btn">View Event</a>
+                            <a href="{% url 'event_information' event.pk %}" class="event-btn-a">
+                                <button class="event-btn">View Event</button>
+                            </a>
                             {% if not user in event.participants.all %}
                             <form method="post" action="{% url 'join_event' event_id=event.pk %}" class="d-inline">
                                 {% csrf_token %}

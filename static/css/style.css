@@ -38,6 +38,19 @@ main * {
     color: #2b7375;
 }
 
+/* Homepage cards buttons */
+
+.event-btn {
+    width: 40%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #72daba;
+    color: #2a484e;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
 /* Call to action - create an event */
 
 .action-call {
