@@ -89,8 +89,12 @@ class TestJoinEventView(TestCase):
             cover_image='default_image'
         )
 
-    def test_join_event_url_and_redirect_user_logged_in(self):
+    def test_join_event_url_and_redirect(self):
         self.client.login(username='testuser', password='testpassword')
         test_event = Event.objects.first()
         response = self.client.post(f'/event/{test_event.id}/join')
-        self.assertRedirects(response, reverse('event_information', args=[test_event.id]), 302)
+        self.assertRedirects(
+            response,
+            reverse('event_information', args=[test_event.id]),
+            302
+        )

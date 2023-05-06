@@ -25,6 +25,5 @@ urlpatterns = [
     ),
     path('event/<int:event_id>/join',
          views.JoinEvent.as_view(),
-         name='join_event'
-    )
+         name='join_event')
 ]
