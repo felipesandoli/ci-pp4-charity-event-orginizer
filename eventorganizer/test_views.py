@@ -155,3 +155,10 @@ class TestCancelEventParticipationView(TestCase):
         user = User.objects.first()
         response = self.client.post(f'/event/{test_event.id}/leave')
         self.assertNotIn(user, test_event.participants.all())
+
+    def test_leave_event_removes_event_from_user_event_list(self):
+        self.client.login(username='testuser', password='testpassword')
+        test_event = Event.objects.first()
+        user = User.objects.first()
+        response = self.client.post(f'/event/{test_event.id}/leave')
+        self.assertNotIn(test_event, user.event_participants.all())
