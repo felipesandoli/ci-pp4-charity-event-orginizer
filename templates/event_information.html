@@ -18,7 +18,7 @@
             </div>
             {% if user.is_authenticated %}
                 <div class="col-md-4">
-                    {% if user != event.owner and not user_participating %}
+                    {% if user != event.owner and not user in event.participants.all %}
                     <form method="post" action="{% url 'join_event' event_id=event.pk %}">
                         {% csrf_token %}
                         <button type="submit" class="d-block event-info-btn">Sign Up to this event</button>
@@ -58,7 +58,7 @@
                 <i class="fa-solid fa-location-dot"></i> {{ event.address }}, {{ event.city }}, {{ event.country }}
             </div>
         </div>
-        {% if user_participating %}
+        {% if user in event.participants.all %}
             <div class="row pt-3">
                 <p>If you would like to cancel your participation in this event please click the button Leave Event bellow</p>
                 <form method="post" action="">
