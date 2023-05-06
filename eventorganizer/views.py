@@ -165,4 +165,6 @@ class JoinEvent(View):
 
     def post(self, request, event_id):
         event = get_object_or_404(Event, id=event_id)
+        event.participants.add(request.user)
+        event.save()
         return redirect(reverse('event_information', args=[event_id]))

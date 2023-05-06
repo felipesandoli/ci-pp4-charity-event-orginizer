@@ -98,3 +98,10 @@ class TestJoinEventView(TestCase):
             reverse('event_information', args=[test_event.id]),
             302
         )
+
+    def test_join_event_adds_user_to_event_participants(self):
+        self.client.login(username='testuser', password='testpassword')
+        test_event = Event.objects.first()
+        user = User.objects.first()
+        response = self.client.post(f'/event/{test_event.id}/join')
+        self.assertEqual(test_event.participants.all().first(), user)
