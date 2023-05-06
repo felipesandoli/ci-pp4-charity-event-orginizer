@@ -79,13 +79,17 @@ class EventInformation(View):
 
     def get(self, request, event_id):
         event = get_object_or_404(Event, id=event_id)
+        if request.user in event.participants.all():
+            user_participating = True
+        else:
+            user_participating = False
 
         if (
             request.user.is_authenticated
             and event.approved
             and not event.archived
         ):
-            return render(request, "event_information.html", {"event": event})
+            return render(request, "event_information.html", {"event": event, 'user_participating': user_participating})
         elif not request.user.is_authenticated:
             messages.add_message(
                 request,

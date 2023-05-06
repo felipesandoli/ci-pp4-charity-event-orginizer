@@ -18,12 +18,12 @@
             </div>
             {% if user.is_authenticated %}
                 <div class="col-md-4">
-                    {% if user != event.owner %}
+                    {% if user != event.owner and not user_participating %}
                     <form method="post" action="{% url 'join_event' event_id=event.pk %}">
                         {% csrf_token %}
                         <button type="submit" class="d-block event-info-btn">Sign Up to this event</button>
                     </form>
-                    {% else  %}
+                    {% elif user == event.owner  %}
                     <a href="{% url 'edit_event' event_id=event.pk %}" class="event-btn-a">
                         <button class="d-block event-info-btn">Edit Event</button>
                     </a>
@@ -58,5 +58,14 @@
                 <i class="fa-solid fa-location-dot"></i> {{ event.address }}, {{ event.city }}, {{ event.country }}
             </div>
         </div>
+        {% if user_participating %}
+            <div class="row pt-3">
+                <p>If you would like to cancel your participation in this event please click the button Leave Event bellow</p>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <button type="submit" class="d-block event-info-btn delete-btn">Leave Event</button>
+                </form>
+            </div>
+        {% endif  %}
     </div>
 {% endblock %}
