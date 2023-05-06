@@ -148,3 +148,10 @@ class TestCancelEventParticipationView(TestCase):
             reverse('event_information', args=[test_event.id]),
             302
         )
+
+    def test_leave_event_removes_user_from_event_participants(self):
+        self.client.login(username='testuser', password='testpassword')
+        test_event = Event.objects.first()
+        user = User.objects.first()
+        response = self.client.post(f'/event/{test_event.id}/leave')
+        self.assertNotIn(user, test_event.participants.all())
