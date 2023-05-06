@@ -104,4 +104,11 @@ class TestJoinEventView(TestCase):
         test_event = Event.objects.first()
         user = User.objects.first()
         response = self.client.post(f'/event/{test_event.id}/join')
-        self.assertEqual(test_event.participants.all().first(), user)
+        self.assertEqual(test_event.participants.first(), user)
+
+    def test_join_event_adds_event_to_user_events_list(self):
+        self.client.login(username='testuser', password='testpassword')
+        test_event = Event.objects.first()
+        user = User.objects.first()
+        response = self.client.post(f'/event/{test_event.id}/join')
+        self.assertEqual(user.event_participants.first(), test_event)
