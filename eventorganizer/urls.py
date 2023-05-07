@@ -37,5 +37,10 @@ urlpatterns = [
         'my-events',
         views.MyEvents.as_view(),
         name='my_events'
+    ),
+    path(
+    'event/<int:event_id>/like',
+    views.LikeEvent.as_view(),
+    name='like_event'
     )
 ]

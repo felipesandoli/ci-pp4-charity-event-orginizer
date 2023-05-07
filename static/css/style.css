@@ -51,6 +51,10 @@ main * {
     font-weight: 600;
 }
 
+.like-btn {
+    border: none;
+}
+
 /* Call to action - create an event */
 
 .action-call {

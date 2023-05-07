@@ -37,8 +37,17 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-6">
-                                    <span><i class="far fa-heart"></i></span>
-                                    <span>{{ event.number_of_likes }}</span>
+                                    <form method="post" action="{% url 'like_event' event_id=event.pk %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="like-btn">
+                                            {% if user in event.likes.all %}
+                                                <span><i class="fas fa-heart"></i></span>
+                                            {% else %}
+                                                <span><i class="far fa-heart"></i></span>
+                                            {% endif %}
+                                        </button>
+                                        <span>{{ event.number_of_likes }}</span>
+                                    </form>
                                 </div>
                                 <div class="col-6">
                                     <span><i class="far fa-user"></i></span>

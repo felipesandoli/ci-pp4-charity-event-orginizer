@@ -22,6 +22,7 @@ class SignUp(generic.CreateView):
     template_name = "registration/signup.html"
 
 
+
 class Logout(View):
 
     def get(self, request):
@@ -188,3 +189,14 @@ class MyEvents(generic.ListView):
         events_owned =  Event.objects.filter(approved=True, archived=False, owner=self.request.user)
         events_participating = Event.objects.filter(participants__id=self.request.user.id)
         return events_owned | events_participating
+    
+
+class LikeEvent(View):
+
+    def post(self, request, event_id):
+        event = get_object_or_404(Event, id=event_id)
+        if request.user in event.likes.all():
+            event.likes.remove(request.user)
+        else:
+            event.likes.add(request.user)
+        return redirect('homepage')
