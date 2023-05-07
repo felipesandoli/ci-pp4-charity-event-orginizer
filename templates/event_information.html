@@ -9,6 +9,26 @@
         {% endif %}
     </div>
     <div class="continer px-3">
+        <div class="row px-5">
+            <div class="col-6 col-md-3 col-xl-1">
+                <form method="post" action="{% url 'like_event' event_id=event.pk %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    <button type="submit" class="like-btn">
+                        {% if user in event.likes.all %}
+                            <span><i class="fas fa-heart"></i></span>
+                        {% else %}
+                            <span><i class="far fa-heart"></i></span>
+                        {% endif %}
+                    </button>
+                    <span>{{ event.number_of_likes }}</span>
+                </form>
+            </div>
+            <div class="col-6 col-md-3 col-xl-1">
+                <span><i class="far fa-user"></i></span>
+                <span>{{ event.number_of_participants }}</span>
+            </div>
+        </div>
         <div class="row pt-5">
             <div class="col-md-8">
                 <h3 class="event-name">
