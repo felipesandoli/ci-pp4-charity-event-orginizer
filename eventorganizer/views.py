@@ -4,6 +4,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.urls import reverse_lazy, reverse
+from django.http import HttpResponseRedirect
 from .models import Event
 from .forms import EventForm
 
@@ -199,4 +200,5 @@ class LikeEvent(View):
             event.likes.remove(request.user)
         else:
             event.likes.add(request.user)
-        return redirect('homepage')
+        next = request.POST.get('next', '/')
+        return redirect(next)

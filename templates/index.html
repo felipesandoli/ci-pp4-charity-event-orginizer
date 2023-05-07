@@ -39,6 +39,7 @@
                                 <div class="col-6">
                                     <form method="post" action="{% url 'like_event' event_id=event.pk %}">
                                         {% csrf_token %}
+                                        <input type="hidden" name="next" value="{{ request.path }}">
                                         <button type="submit" class="like-btn">
                                             {% if user in event.likes.all %}
                                                 <span><i class="fas fa-heart"></i></span>
