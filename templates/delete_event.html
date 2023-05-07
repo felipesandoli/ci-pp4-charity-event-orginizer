@@ -26,7 +26,7 @@
                     {% csrf_token %}
                     <button type="submit" class="event-info-btn delete-btn">Delete</button>
                 </form>
-                <a href="" class="event-btn-a">
+                <a href="{% url 'my_events' %}" class="event-btn-a">
                     <button class="d-block event-info-btn">Back to My Events</button>
                 </a>
             </div>
