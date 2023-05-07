@@ -37,7 +37,7 @@
                             <a href="{% url 'create_event' %}" class="nav-link action-call"><strong><i class="fa-solid fa-plus"></i></strong> Create an Event </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">My events</a>
+                            <a href="{% url 'my_events' %}" class="nav-link">My events</a>
                         </li>
                         <li class="nav-item">
                             {% if user.is_authenticated %}

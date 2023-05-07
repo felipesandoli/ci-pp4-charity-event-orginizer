@@ -177,3 +177,14 @@ class LeaveEvent(View):
         event.participants.remove(request.user)
         event.save()
         return redirect(reverse('event_information', args=[event_id]))
+
+
+class MyEvents(generic.ListView):
+    model = Event
+    paginate_by = 16
+    template_name = 'my_events.html'
+
+    def get_queryset(self):
+        events_owned =  Event.objects.filter(approved=True, archived=False, owner=self.request.user)
+        events_participating = Event.objects.filter(participants__id=self.request.user.id)
+        return events_owned | events_participating
