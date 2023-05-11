@@ -185,3 +185,19 @@ footer a {
         border: 1px groove #2a484e;
     }
 }
+
+@media screen and (max-width: 1200px) {
+    main  {
+        font-size: 1em;
+    }
+
+    .event-btn {
+        font-size: 1rem;
+    }
+
+    footer {
+        font-size: 1rem;
+        position: relative !important;
+
+    }
+}
