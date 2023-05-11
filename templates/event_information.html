@@ -35,9 +35,27 @@
                     {{ event.name }}
                 </h3>
                 <p>{{ event.event_start.date }}</p>
+                <div class="col">
+                    <p>{{ event.summary }}</p>
+                </div>
+                <div class="col">
+                    <h4>About this event</h4>
+                </div>
+                <div class="col">
+                    <p>{{ event.description }}</p>
+                </div>
+                <div class="col">
+                    <h4>Date, Time & Location</h4>
+                    <div class="col-md-6">
+                        <i class="fa-solid fa-calendar"></i> {{ event.event_start }} - {{ event.event_end }}
+                    </div>
+                    <div class="col-md-6">
+                        <i class="fa-solid fa-location-dot"></i> {{ event.address }}, {{ event.city }}, {{ event.country }}
+                    </div>
+                </div>
             </div>
             {% if user.is_authenticated %}
-                <div class="col-md-4">
+                <div class="col-md-4 pt-5">
                     {% if user != event.owner and not user in event.participants.all %}
                     <form method="post" action="{% url 'join_event' event_id=event.pk %}">
                         {% csrf_token %}
@@ -61,30 +79,6 @@
                     {% endif  %}
                 </div>
             {% endif %}
-        </div>
-        <div class="row pt-3">
-            <div class="col">
-                <p>{{ event.summary }}</p>
-            </div>
-        </div>
-        <div class="row pt-3">
-            <div class="col-12">
-                <h4>About this event</h4>
-            </div>
-            <div class="col-12">
-                <p>{{ event.description }}</p>
-            </div>
-        </div>
-        <div class="row pt-3">
-            <div class="col-12">
-                <h4>Date, Time & Location</h4>
-            </div>
-            <div class="col-md-6">
-                <i class="fa-solid fa-calendar"></i> {{ event.event_start }} - {{ event.event_end }}
-            </div>
-            <div class="col-md-6">
-                <i class="fa-solid fa-location-dot"></i> {{ event.address }}, {{ event.city }}, {{ event.country }}
-            </div>
         </div>
     </div>
 {% endblock %}
