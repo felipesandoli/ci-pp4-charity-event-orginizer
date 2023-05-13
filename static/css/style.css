@@ -7,12 +7,17 @@
     --delete: #ff5042;
 }
 
+body {
+    position: relative;
+}
+
 main {
     font-family: 'Nunito', sans-serif;
     font-size: 1rem;
     color: var(--dark-blue);
     padding: 15px;
     margin-bottom: 150px;
+    min-height: 80vh;
 }
 
 main * {
@@ -79,7 +84,6 @@ main * {
 /* Login page */
 
 .auth-container {
-    height: 60vh;
     max-width: 1200px;
     padding: 30px;
     color: var(--dark-blue);
@@ -233,6 +237,7 @@ footer a {
 
     footer {
         font-size: 1rem;
+        bottom: 0;
         position: relative !important;
 
     }
