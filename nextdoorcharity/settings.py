@@ -43,7 +43,6 @@ if development:
 else:
     ALLOWED_HOSTS = [os.environ.get('HEROKU_APP')]
 
-
 # Application definition
 
 INSTALLED_APPS = [

@@ -35,10 +35,8 @@ class Event(models.Model):
     country = models.CharField(max_length=50)
     start_date = models.DateField(default=timezone.now)
     start_time = models.TimeField(default=timezone.now)
-    event_start = models.DateTimeField(default=timezone.now)
     end_date = models.DateField(default=timezone.now)
     end_time = models.TimeField(default=timezone.now)
-    event_end = models.DateTimeField(default=timezone.now)
     approved = models.BooleanField(default=False)
     archived = models.BooleanField(default=False)
     likes = models.ManyToManyField(

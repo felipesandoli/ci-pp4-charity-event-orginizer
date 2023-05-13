@@ -53,7 +53,7 @@ class CreateEvent(View):
             return redirect("login")
 
     def post(self, request):
-        event_form = EventForm(request.POST)
+        event_form = EventForm(request.POST, request.FILES)
 
         if event_form.is_valid():
             event_form.instance.owner = request.user
@@ -135,7 +135,7 @@ class EditEvent(View):
     def post(self, request, event_id):
         event = get_object_or_404(Event, id=event_id)
         event_form = EventForm(instance=event)
-        event_form = EventForm(request.POST, instance=event)
+        event_form = EventForm(request.POST, request.FILES, instance=event)
 
         if event_form.is_valid:
             event_form.instance.approved = False
