@@ -1,14 +1,23 @@
+:root {
+    --dark-blue: #2A6277;
+    --medium-blue: #2B73A4;
+    --off-white: #D1E8F9;
+    --light-green: #6be2ce;
+    --bright-green: #08bd05;
+    --delete: #ff5042;
+}
+
 main {
     font-family: 'Nunito', sans-serif;
     font-size: 1rem;
-    color: #2a484e;
+    color: var(--dark-blue);
     padding: 15px;
     margin-bottom: 150px;
 }
 
 main * {
     font-family: 'Nunito', sans-serif;
-    color: #2a484e;
+    color: var(--dark-blue);
 }
 
 
@@ -16,13 +25,13 @@ main * {
 
 .navbar {
     font-family: 'Varela Round', sans-serif;
-    background-color: #dde8ea;
+    background-color: var(--off-white);
 }
 
 .navbar-brand {
     text-align: right;
     padding: 5px 15px;
-    color: #2a484e;
+    color: var(--dark-blue);
 }
 
 .navbar-brand h1 {
@@ -35,7 +44,7 @@ main * {
 
 .nav-item a {
     font-size: 1.25rem;
-    color: #2b7375;
+    color: var(--medium-blue);
 }
 
 /* Homepage cards buttons */
@@ -45,10 +54,15 @@ main * {
     height: 50px;
     border: none;
     border-radius: 5px;
-    background-color: #72daba;
-    color: #2a484e;
+    background-color: var(--light-green);
+    color: var(--dark-blue);
     font-size: 1.25rem;
     font-weight: 600;
+}
+
+.event-btn:hover {
+    background-color: var(--dark-blue);
+    color: var(--light-green);
 }
 
 .like-btn {
@@ -58,7 +72,7 @@ main * {
 /* Call to action - create an event */
 
 .action-call {
-    color: #08bd05 !important;
+    color: var(--bright-green) !important;
     font-weight: 900;
 }
 
@@ -68,7 +82,7 @@ main * {
     height: 60vh;
     max-width: 1200px;
     padding: 30px;
-    color: #2a484e;
+    color: var(--dark-blue);
 }
 
 .auth-container input {
@@ -81,8 +95,8 @@ main * {
     height: 50px;
     border: none;
     border-radius: 5px;
-    background-color: #72daba;
-    color: #2a484e;
+    background-color: var(--light-green);
+    color: var(--dark-blue);
     font-size: 1.25rem;
     font-weight: 600;
 }
@@ -96,8 +110,8 @@ main * {
 }
 
 .auth-button:hover, .submit-button:hover {
-    color: #72daba;
-    background-color: #2a484e;
+    color: var(--light-green);
+    background-color: var(--dark-blue);
 }
 
 /* Making sure entire create event form is displayed */
@@ -126,13 +140,13 @@ main * {
 }
 
 .event-info-btn {
-    background-color: #72daba;
+    background-color: var(--light-green);
     width: 250px;
     height: 50px;
     margin: 5px;
     border: none;
     border-radius: 5px;
-    color: #2a484e;
+    color: var(--dark-blue);
     font-weight: 600;
 }
 
@@ -141,25 +155,25 @@ main * {
 }
 
 .event-info-btn:hover {
-    color: #72daba;
-    background-color: #2a484e;
+    color: var(--light-green);
+    background-color: var(--dark-blue);
 }
 
 .delete-btn {
-    background-color: #ffffff;
-    color: #ff5042 !important;
+    background-color: #fff;
+    color: var(--delete) !important;
 }
 
 .delete-btn:hover {
-    background-color: #dde8ea;
+    background-color: var(--off-white);
 }
 
 /* Footer */
 
 footer {
-    background-color: #2a484e;
+    background-color: var(--dark-blue);
     font-size: 1.25rem;
-    color: #dde8ea;
+    color: var(--off-white);
 }
 
 footer .row {
@@ -168,7 +182,7 @@ footer .row {
 
 footer a {
     font-size: 2rem;
-    color: #dde8ea;
+    color: var(--off-white);
     padding: 0 5px;
 }
 
@@ -186,25 +200,25 @@ footer a {
 }
 
 .page-btn {
-    color: #2b7375 !important;
+    color: var(--medium-blue) !important;
     font-weight: 600 !important;
 }
 
 .page-btn:hover {
-    color: #08bd05;
-    background-color: #dde8ea
+    color: var(--bright-green);
+    background-color: var(--off-white)
 }
 
 /* Media Queries */
 
 @media screen and (max-width: 768px) {
     .nav-item {
-        border-right: 1px solid #2a484e;
-        border-left: 1px solid #2a484e;
+        border-right: 1px solid var(--dark-blue);
+        border-left: 1px solid var(--dark-blue);
         padding: 0 15px;
     }
     .nav-item:first-child, .nav-item:last-child {
-        border: 1px groove #2a484e;
+        border: 1px groove var(--dark-blue);
     }
 }
 
