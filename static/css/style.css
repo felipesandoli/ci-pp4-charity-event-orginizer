@@ -1,6 +1,6 @@
 main {
     font-family: 'Nunito', sans-serif;
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: #2a484e;
     padding: 15px;
     margin-bottom: 150px;
@@ -173,10 +173,17 @@ footer a {
 }
 
 .card-img-top {
-    height: 10vw;
+    height: 20vh;
     object-fit: cover;
 }
 
+.placeholder-card-img {
+    object-fit: contain;
+}
+
+.date-text {
+    font-size: 0.8rem;
+}
 
 /* Media Queries */
 

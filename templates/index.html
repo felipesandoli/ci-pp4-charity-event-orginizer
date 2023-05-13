@@ -16,14 +16,15 @@
                         <div class="card">
                             <!-- Display default image for events with no submitted image based on I think therefore I blog walkthrough project -->
                             {% if 'default_image' in event.cover_image.url %}
-                                <img src="https://res.cloudinary.com/dnyznztuw/image/upload/v1682267748/nextdoor-charity_bo8wt8.jpg" alt="default event cover image" class="card-img-top">
+                                <img src="https://res.cloudinary.com/dnyznztuw/image/upload/v1682267748/nextdoor-charity_bo8wt8.jpg" alt="default event cover image" class="card-img-top placeholder-card-img">
                             {% else %}
                                 <img src="{{ event.cover_image.url }}" alt="event cover image" class="card-img-top">
                             {% endif %}
                             <div class="card-body">
                                 <h4 class="card-title">{{ event.name }}</h4>
-                                <p class="card-subtitle text-muted">{{ event.event_start }} - {{ event.event_end }}</p>
+                                <p class="card-subtitle text-muted date-text">{{ event.event_start }} - {{ event.event_end }}</p>
                                 <p class="card-text">{{ event.city }}, {{ event.country }}</p>
+                                <p class="card-text">{{ event.summary }}</p>
                                 {% if user.is_authenticated and not user in event.participants.all %}
                                     <form method="post" action="{% url 'join_event' event_id=event.pk %}" class="d-inline">
                                         {% csrf_token %}
