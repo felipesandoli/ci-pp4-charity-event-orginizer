@@ -185,6 +185,16 @@ footer a {
     font-size: 0.8rem;
 }
 
+.page-btn {
+    color: #2b7375;
+    font-weight: 600;
+}
+
+.page-btn:hover {
+    color: #08bd05;
+    background-color: #dde8ea
+}
+
 /* Media Queries */
 
 @media screen and (max-width: 768px) {
