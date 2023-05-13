@@ -1,7 +1,7 @@
 :root {
     --dark-blue: #2A6277;
     --medium-blue: #2B73A4;
-    --off-white: #D1E8F9;
+    --light-blue: #D1E8F9;
     --light-green: #6be2ce;
     --bright-green: #08bd05;
     --delete: #ff5042;
@@ -25,7 +25,7 @@ main * {
 
 .navbar {
     font-family: 'Varela Round', sans-serif;
-    background-color: var(--off-white);
+    background-color: var(--light-blue);
 }
 
 .navbar-brand {
@@ -165,7 +165,7 @@ main * {
 }
 
 .delete-btn:hover {
-    background-color: var(--off-white);
+    background-color: var(--light-blue);
 }
 
 /* Footer */
@@ -173,7 +173,7 @@ main * {
 footer {
     background-color: var(--dark-blue);
     font-size: 1.25rem;
-    color: var(--off-white);
+    color: var(--light-blue);
 }
 
 footer .row {
@@ -182,7 +182,7 @@ footer .row {
 
 footer a {
     font-size: 2rem;
-    color: var(--off-white);
+    color: var(--light-blue);
     padding: 0 5px;
 }
 
@@ -206,7 +206,7 @@ footer a {
 
 .page-btn:hover {
     color: var(--bright-green);
-    background-color: var(--off-white)
+    background-color: var(--light-blue)
 }
 
 /* Media Queries */
