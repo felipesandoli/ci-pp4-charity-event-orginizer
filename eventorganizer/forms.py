@@ -2,6 +2,14 @@ from django import forms
 from .models import Event
 
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+
+class TimeInput(forms.TimeInput):
+    input_type = 'time'
+
+
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
@@ -20,3 +28,9 @@ class EventForm(forms.ModelForm):
             'end_time',
             'cover_image'
         ]
+        widgets = {
+            'start_date': DateInput(),
+            'end_date': DateInput(),
+            'start_time': TimeInput(format='%H:%M'),
+            'end_time': TimeInput(format='%H:%M'),
+        }
