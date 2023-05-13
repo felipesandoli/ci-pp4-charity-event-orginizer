@@ -14,7 +14,9 @@ class EventForm(forms.ModelForm):
             'address',
             'city',
             'country',
-            'event_start',
-            'event_end',
+            'start_date',
+            'start_time',
+            'end_date',
+            'end_time',
             'cover_image'
         ]

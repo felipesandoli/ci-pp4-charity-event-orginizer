@@ -33,8 +33,10 @@ class TestEventInformationlView(TestCase):
             address='test',
             city='test',
             country='test',
-            event_start=timezone.now(),
-            event_end=timezone.now(),
+            start_date=timezone.now(),
+            start_time=timezone.now(),
+            end_date=timezone.now(),
+            end_time=timezone.now(),
             cover_image='default_image'
         )
 
@@ -88,8 +90,10 @@ class TestJoinEventView(TestCase):
             approved=True,
             city='test',
             country='test',
-            event_start=timezone.now(),
-            event_end=timezone.now(),
+            start_date=timezone.now(),
+            start_time=timezone.now(),
+            end_date=timezone.now(),
+            end_time=timezone.now(),
             cover_image='default_image'
         )
 
@@ -138,8 +142,10 @@ class TestCancelEventParticipationView(TestCase):
             approved=True,
             city='test',
             country='test',
-            event_start=timezone.now(),
-            event_end=timezone.now(),
+            start_date=timezone.now(),
+            start_time=timezone.now(),
+            end_date=timezone.now(),
+            end_time=timezone.now(),
             cover_image='default_image'
         )
         test_event.participants.add(test_user)

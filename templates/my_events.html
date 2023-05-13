@@ -22,7 +22,7 @@
                             {% endif %}
                             <div class="card-body">
                                 <h4 class="card-title">{{ event.name }}</h4>
-                                <p class="card-subtitle text-muted date-text">{{ event.event_start }} - {{ event.event_end }}</p>
+                                <p class="card-subtitle text-muted date-text">{{ event.start_date }}, {{ event.start_time }} - {{ event.end_date }}, {{ event.end_time }}</p>
                                 <p class="card-text">{{ event.city }}, {{ event.country }}</p>
                                 <p class="card-text">{{ event.summary }}</p>
                             </div>

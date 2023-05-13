@@ -48,12 +48,20 @@
                                 <h3>Date and Time</h3>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        {{ event_form.event_start | as_crispy_field }}
+                                        {{ event_form.start_date | as_crispy_field }}
+                                        {{ event_form.start_time | as_crispy_field}}
                                     </div>
                                     <div class="col-md-6">
-                                        {{ event_form.event_end | as_crispy_field }}
+                                        {{ event_form.end_date | as_crispy_field }}
+                                        {{ event_form.end_time | as_crispy_field}}
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row pt-5">
+                            <div class="col">
+                                <h3>Event Cover Image</h3>
+                                {{ event_form.cover_image | as_crispy_field }}
                             </div>
                         </div>
                         <div class="row pt-5">

@@ -186,8 +186,8 @@ footer a {
 }
 
 .page-btn {
-    color: #2b7375;
-    font-weight: 600;
+    color: #2b7375 !important;
+    font-weight: 600 !important;
 }
 
 .page-btn:hover {

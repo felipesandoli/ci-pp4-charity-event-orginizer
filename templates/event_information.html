@@ -34,7 +34,7 @@
                 <h3 class="event-name">
                     {{ event.name }}
                 </h3>
-                <p>{{ event.event_start.date }}</p>
+                <p>{{ event.start_date }}</p>
                 <div class="col">
                     <p>{{ event.summary }}</p>
                 </div>
@@ -47,7 +47,7 @@
                 <div class="col">
                     <h4>Date, Time & Location</h4>
                     <div class="col-md-6">
-                        <i class="fa-solid fa-calendar"></i> {{ event.event_start }} - {{ event.event_end }}
+                        <i class="fa-solid fa-calendar"></i> {{ event.start_date }}, {{ event.start_time }} - {{ event.end_date }}, {{event.end_time}}
                     </div>
                     <div class="col-md-6">
                         <i class="fa-solid fa-location-dot"></i> {{ event.address }}, {{ event.city }}, {{ event.country }}
