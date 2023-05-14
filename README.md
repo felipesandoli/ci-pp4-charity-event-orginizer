@@ -192,9 +192,17 @@ This online [HTML Beaultifier](https://htmlbeautify.com/) was used to improve th
 
 ### HTML Validation
 
+All pages passed W3C HTML validation:
+
 - [Homepage](docs/README_docs/homepage-html-validation.jpg)
 - [Create Event Page](docs/README_docs/create-form-html-validation.jpg)
 - [My Event Page](docs/README_docs/my-events-html-validation.jpg)
 - [Login Page](docs/README_docs/login-html-validation.jpg)
 - [Sign Up Page](docs/README_docs/signup-html-validation.jpg)
 - [Event Details Page](docs/README_docs/event-detail-html-validation.jpg)
+- [Delete Event Page](docs/README_docs/delete-html-validation.jpg)
+- [Edit Event Page](docs/README_docs/edit-event-html-validation.jpg)
+
+### CSS Validation
+
+Custom CSS was validated using W3C CSS Validator and passed with no issues. Report can be found [here](docs/README_docs/css-validation.jpg)
