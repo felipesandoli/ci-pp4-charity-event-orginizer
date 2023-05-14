@@ -25,7 +25,9 @@ class Event(models.Model):
     type = models.CharField(max_length=20, choices=EVENT_TYPE_CHOICES)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
     summary = models.TextField(help_text="Enter a short summary of your event")
-    description = models.TextField(help_text="Enter a full description of your event")
+    description = models.TextField(
+        help_text="Enter a full description of your event"
+    )
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
@@ -35,7 +37,9 @@ class Event(models.Model):
     end_time = models.TimeField(default=timezone.now)
     approved = models.BooleanField(default=False)
     archived = models.BooleanField(default=False)
-    likes = models.ManyToManyField(User, blank=True, related_name="event_likes")
+    likes = models.ManyToManyField(
+        User, blank=True, related_name="event_likes"
+    )
     participants = models.ManyToManyField(
         User, blank=True, related_name="event_participants"
     )

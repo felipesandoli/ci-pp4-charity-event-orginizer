@@ -1,4 +1,3 @@
-from . import views
 from django.urls import path
 from . import views
 
@@ -13,12 +12,32 @@ urlpatterns = [
         views.EventInformation.as_view(),
         name="event_information",
     ),
-    path("event/<int:event_id>/edit", views.EditEvent.as_view(), name="edit_event"),
     path(
-        "event/<int:event_id>/delete", views.DeleteEvent.as_view(), name="delete_event"
+        "event/<int:event_id>/edit",
+        views.EditEvent.as_view(),
+        name="edit_event"
     ),
-    path("event/<int:event_id>/join", views.JoinEvent.as_view(), name="join_event"),
-    path("event/<int:event_id>/leave", views.LeaveEvent.as_view(), name="leave_event"),
-    path("my-events", views.MyEvents.as_view(), name="my_events"),
-    path("event/<int:event_id>/like", views.LikeEvent.as_view(), name="like_event"),
+    path(
+        "event/<int:event_id>/delete",
+        views.DeleteEvent.as_view(),
+        name="delete_event"
+    ),
+    path(
+        "event/<int:event_id>/join",
+        views.JoinEvent.as_view(),
+        name="join_event"
+    ),
+    path(
+        "event/<int:event_id>/leave",
+        views.LeaveEvent.as_view(),
+        name="leave_event"
+    ),
+    path(
+        "my-events", views.MyEvents.as_view(), name="my_events"
+    ),
+    path(
+        "event/<int:event_id>/like",
+        views.LikeEvent.as_view(),
+        name="like_event"
+    ),
 ]
