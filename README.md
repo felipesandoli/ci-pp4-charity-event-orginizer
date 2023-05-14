@@ -28,6 +28,8 @@
 - [Validation](#validation)
     - [HTML Bealtify](#html-beautify)
     - [HTML Validation](#html-validation)
+    - [CSS Validation](#css-validation)
+    - [Lighthouse](#lighthouse)
 
 ## Project Overview
 
@@ -206,3 +208,7 @@ All pages passed W3C HTML validation:
 ### CSS Validation
 
 Custom CSS was validated using W3C CSS Validator and passed with no issues. Report can be found [here](docs/README_docs/css-validation.jpg)
+
+### Lighthouse
+
+A good overall performance of Lighthouse validator can be observed [here](docs/README_docs/lighthouse.jpg)
