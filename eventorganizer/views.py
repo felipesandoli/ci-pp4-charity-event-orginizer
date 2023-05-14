@@ -13,18 +13,17 @@ class HomePage(generic.ListView):
     model = Event
     queryset = Event.objects.filter(approved=True, archived=False)
     paginate_by = 16
-    template_name = 'index.html'
+    template_name = "index.html"
 
 
 # Signup following learndjango tutorial
 class SignUp(generic.CreateView):
     form_class = UserCreationForm
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy("login")
     template_name = "registration/signup.html"
 
 
 class Logout(View):
-
     def get(self, request):
         logout(request)
         messages.add_message(
@@ -34,7 +33,6 @@ class Logout(View):
 
 
 class CreateEvent(View):
-
     def get(self, request):
         if request.user.is_authenticated:
             event_form = EventForm()
@@ -42,13 +40,11 @@ class CreateEvent(View):
             return render(
                 request,
                 "event_form.html",
-                {"event_form": event_form, "new_event": new_event}
+                {"event_form": event_form, "new_event": new_event},
             )
         else:
             messages.add_message(
-                request,
-                messages.ERROR,
-                "You need to be logged in to create an event."
+                request, messages.ERROR, "You need to be logged in to create an event."
             )
             return redirect("login")
 
@@ -61,58 +57,46 @@ class CreateEvent(View):
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                "Your event has been created and is now pending approval."
+                "Your event has been created and is now pending approval.",
             )
             return redirect("homepage")
         else:
             messages.add_message(
-                request,
-                messages.ERROR,
-                "Something went wrong. Please try again"
+                request, messages.ERROR, "Something went wrong. Please try again"
             )
             event_form = EventForm()
-            return render(
-                request, "event_form.html", {"event_form": event_form}
-            )
+            return render(request, "event_form.html", {"event_form": event_form})
 
 
 class EventInformation(View):
-
     def get(self, request, event_id):
         event = get_object_or_404(Event, id=event_id)
 
-        if (
-            request.user.is_authenticated
-            and event.approved
-            and not event.archived
-        ):
+        if request.user.is_authenticated and event.approved and not event.archived:
             return render(request, "event_information.html", {"event": event})
         elif not request.user.is_authenticated:
             messages.add_message(
-                request,
-                messages.ERROR,
-                'You need to be logged in to see this event'
+                request, messages.ERROR, "You need to be logged in to see this event"
             )
-            return redirect('login')
+            return redirect("login")
         elif not event.approved:
             messages.add_message(
                 request,
                 messages.ERROR,
-                'The event you are trying to see is pending approval'
+                "The event you are trying to see is pending approval",
             )
-            return redirect('homepage')
+            return redirect("homepage")
         elif event.archived:
             messages.add_message(
                 request,
                 messages.ERROR,
-                'The event you are trying to '
-                + 'see has been archived and is no longer available'
+                "The event you are trying to "
+                + "see has been archived and is no longer available",
             )
-            return redirect('homepage')
+            return redirect("homepage")
 
 
 class EditEvent(View):
-
     def get(self, request, event_id):
         event = get_object_or_404(Event, id=event_id)
         event_form = EventForm(instance=event)
@@ -122,13 +106,11 @@ class EditEvent(View):
             return render(
                 request,
                 "event_form.html",
-                {"event_form": event_form, "new_event": new_event}
+                {"event_form": event_form, "new_event": new_event},
             )
         else:
             messages.add_message(
-                request,
-                messages.ERROR,
-                "You cannot edit an event you do not own."
+                request, messages.ERROR, "You cannot edit an event you do not own."
             )
             return redirect("homepage")
 
@@ -144,17 +126,16 @@ class EditEvent(View):
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                "Your event has been updated and is now awaiting approval."
+                "Your event has been updated and is now awaiting approval.",
             )
 
             return redirect("homepage")
 
 
 class DeleteEvent(View):
-
     def get(self, request, event_id):
         event = get_object_or_404(Event, id=event_id)
-        return render(request, 'delete_event.html', {'event': event})
+        return render(request, "delete_event.html", {"event": event})
 
     def post(self, request, event_id):
         event = get_object_or_404(Event, id=event_id)
@@ -163,47 +144,43 @@ class DeleteEvent(View):
 
 
 class JoinEvent(View):
-
     def post(self, request, event_id):
         event = get_object_or_404(Event, id=event_id)
         event.participants.add(request.user)
         event.save()
-        return redirect(reverse('event_information', args=[event_id]))
+        return redirect(reverse("event_information", args=[event_id]))
 
 
 class LeaveEvent(View):
-
     def post(self, request, event_id):
         event = get_object_or_404(Event, id=event_id)
         event.participants.remove(request.user)
         event.save()
-        return redirect(reverse('event_information', args=[event_id]))
+        return redirect(reverse("event_information", args=[event_id]))
 
 
 class MyEvents(LoginRequiredMixin, generic.ListView):
     model = Event
     paginate_by = 16
-    template_name = 'my_events.html'
-    login_url = 'login'
+    template_name = "my_events.html"
+    login_url = "login"
 
     def get_queryset(self):
         events_owned = Event.objects.filter(
-            approved=True,
-            archived=False,
-            owner=self.request.user
+            approved=True, archived=False, owner=self.request.user
         )
         events_participating = Event.objects.filter(
-            participants__id=self.request.user.id)
+            participants__id=self.request.user.id
+        )
         return events_owned | events_participating
 
 
 class LikeEvent(View):
-
     def post(self, request, event_id):
         event = get_object_or_404(Event, id=event_id)
         if request.user in event.likes.all():
             event.likes.remove(request.user)
         else:
             event.likes.add(request.user)
-        next = request.POST.get('next', '/')
+        next = request.POST.get("next", "/")
         return redirect(next)
