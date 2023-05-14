@@ -17,6 +17,8 @@
 - [Used Technologies](#used-technologis)
     - [Languages](#languages)
     - [Frameworks, Libraries, Softwares and Services](#frameworks-libraries-softwares-and-services)
+- [Features](#features)
+    - [Home Page and Navigation](#home-page-and-navigation)
 
 ## Project Overview
 
@@ -91,3 +93,16 @@ Some of the user stories were developed using Test Driven Development, going str
 - Font Awesome
 - Google Fonts
 - Gouger.io (favicon from Font Awesome icon)
+
+## Features
+
+### Home Page and Navigation
+
+The home page consists of a navigation bar with a logo that acts as a link back to the homepage and a menu that collapses into a hamburger button on mobile phones, and a main section where events created and approved are displayed as cards with relevant information. 
+
+The options in the navigation menu are for creating a new event, view the list of events owned or events the user is participating, and Login/Logout. If the user is not logged in, clicking on the Create Event or My Events options will redirect the user to the login page.
+
+When authenticated, the user is presented a button for joining an event at the bottom of the card, it is also possible to like the event. The joining button is not displayed if the user is already in the list of participants for that event.
+
+![homepage](docs/README_docs/homepage.jpg)
+

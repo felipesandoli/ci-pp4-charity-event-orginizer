@@ -25,6 +25,7 @@
                                 <p class="card-subtitle text-muted date-text">{{ event.start_date }}, {{ event.start_time }} - {{ event.end_date }}, {{ event.end_time }}</p>
                                 <p class="card-text">{{ event.city }}, {{ event.country }}</p>
                                 <p class="card-text">{{ event.summary }}</p>
+                                <p class="card-text">by {{ event.owner }}</p>
                                 {% if user.is_authenticated and not user in event.participants.all %}
                                     <form method="post" action="{% url 'join_event' event_id=event.pk %}" class="d-inline">
                                         {% csrf_token %}
