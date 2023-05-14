@@ -55,3 +55,8 @@ The bellow wireframes were created for design the website main pages, which are 
 
 ### Agile Methodology
 
+GitHub Projects Kanban board was used to document project development. Issues containing user stories were placed in the columns To Do, In Progress, Testing and Done. Epics were left in their own column as these were used for project idealization, being broken down into user stories for project development.
+
+![Kanban Board](docs/README_docs/kanban-board.jpg)
+
+Some of the user stories were developed using Test Driven Development, going straight from In progress to Done skipping the Testing stage. Other user stories were tested after development.
