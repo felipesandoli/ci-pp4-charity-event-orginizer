@@ -212,3 +212,7 @@ Custom CSS was validated using W3C CSS Validator and passed with no issues. Repo
 ### Lighthouse
 
 A good overall performance of Lighthouse validator can be observed [here](docs/README_docs/lighthouse.jpg)
+
+### JavaScript validation
+
+No error found using JSHint, one identified variable due to JQuery. See report [here](docs/README_docs/js-validation.jpg)

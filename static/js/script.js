@@ -1,4 +1,4 @@
 setTimeout(function() {
-    button = $(".btn-close");
+    let button = $(".btn-close");
     button.click();
 }, 2500);
