@@ -25,6 +25,7 @@
     - [Event Details Page](#event-details-page)
     - [Editing and Deleting Events](#editing-and-deleting-events)
 - [Future Features and Improvements](#future-features-and-improvements)
+- [Validation](#validation)
 
 ## Project Overview
 
@@ -171,7 +172,7 @@ Before event deletion the user is redirected to a page where they are shown some
 
 ![Delete confirmation page](docs/README_docs/delete-event.jpg)
 
-### Future Features and Improvements
+## Future Features and Improvements
 
 Initially the project was idealized to include a map with the event location. A lot of effort was taken into implementing Django LocationField and Google Maps API and after a lot of problem solving and researching due to bugs, I came to the conclusion this would be a nice feature to have but not essential to the project primary functionalities.
 Now with the project functioning as expected for a first realese it would be a good time to dive deep into utilizing these technologies to improve the User Experience of the website.
@@ -179,3 +180,7 @@ Now with the project functioning as expected for a first realese it would be a g
 Another future improvement is allowing the event owners to easily archive their events and also auto archiving events that have already happened.
 
 Adding more information about the organizations responsible for the events could also be implemented.
+
+
+## Validation
+

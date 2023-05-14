@@ -1,108 +1,136 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Charity event organizer">
     <meta name="keywords" content="event, organizer, charity, volunteering, volunteer, fundraise, fundraising">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700&family=Nunito:wght@300;400;700&family=Roboto:wght@100;300;400;500;700&family=Varela+Round&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
-    <title>Nextdoor Charity</title>
-</head>
-<body>
+    <title>Nextdoor Charity
+    </title>
+  </head>
+  <body>
     <header>
-        <!-- bootstrap navbar based on bootstrap example -->
-        <nav class="navbar navbar-expand-md">
-            <div class="container-fluid">
-                <a href="/" class="navbar-brand">
-                    <h1><strong>NEXTDOOR</strong></h1>
-                    <h2><i class="fa-solid fa-hand-holding-heart"></i> CHARITY</h2>
+      <!-- bootstrap navbar based on bootstrap example -->
+      <nav class="navbar navbar-expand-md">
+        <div class="container-fluid">
+          <a href="/" class="navbar-brand">
+            <h1>
+              <strong>NEXTDOOR
+              </strong>
+            </h1>
+            <h2>
+              <i class="fa-solid fa-hand-holding-heart">
+              </i> CHARITY
+            </h2>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars">
+            </i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a href="{% url 'create_event' %}" class="nav-link action-call">
+                  <strong>
+                    <i class="fa-solid fa-plus">
+                    </i>
+                  </strong> Create an Event 
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="{% url 'create_event' %}" class="nav-link action-call"><strong><i class="fa-solid fa-plus"></i></strong> Create an Event </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{% url 'my_events' %}" class="nav-link">My events</a>
-                        </li>
-                        <li class="nav-item">
-                            {% if user.is_authenticated %}
-                                <a href="/logout" class="nav-link" aria-label="Logout of your account">
-                                    Logout
-                                </a>
-                            {% else %}
-                                <a href="{% url 'login' %}" class="nav-link" aria-label="Opens login page">
-                                    Login
-                                </a>
-                            {% endif %}
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'my_events' %}" class="nav-link">My events
+                </a>
+              </li>
+              <li class="nav-item">
+                {% if user.is_authenticated %}
+                <a href="/logout" class="nav-link" aria-label="Logout of your account">
+                  Logout
+                </a>
+                {% else %}
+                <a href="{% url 'login' %}" class="nav-link" aria-label="Opens login page">
+                  Login
+                </a>
+                {% endif %}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
-        {% if messages or form.errors %}
-        <div class="container pt-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="alert {% if messages %}alert-info{% elif form.errors %}alert-danger{% endif %} allert-dismissable fade show">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-11">
-                                    {% for message in messages %}
-                                        {{ message }}
-                                    {% endfor %}
-                                    {% if form.errors %}
-                                        Wrong username or password! please try again.
-                                    {% endif %}
-                                </div>
-                                <div class="col-1">
-                                    <button class="btn-close" data-bs-dismiss="alert" aria-label="Close login alert"></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>   
+    {% if messages or form.errors %}
+    <div class="container pt-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="alert {% if messages %}alert-info{% elif form.errors %}alert-danger{% endif %} allert-dismissable fade show">
+            <div class="container">
+              <div class="row">
+                <div class="col-11">
+                  {% for message in messages %}
+                  {{ message }}
+                  {% endfor %}
+                  {% if form.errors %}
+                  Wrong username or password! please try again.
+                  {% endif %}
                 </div>
+                <div class="col-1">
+                  <button class="btn-close" data-bs-dismiss="alert" aria-label="Close login alert">
+                  </button>
+                </div>
+              </div>
             </div>
+          </div>   
         </div>
-        {% endif %}
+      </div>
+    </div>
+    {% endif %}
     <main>
-        {% block content %}
-            <!-- extended content -->
-        {% endblock content %}
+      {% block content %}
+      <!-- extended content -->
+      {% endblock content %}
     </main>
-
     <footer class="fixed-bottom container-fluid text-center">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <span>&copy Carlos Felipe Capobianco Sandoli</span>
-            </div>
-            <div class="col-md-6">
-                <a href="https://www.linkedin.com/in/felipesandoli/" target="_blank" aria-label="Opens site owner linkedin profile in a new tab"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/felipesandoli" target="_blank" aria-label="Opens site owner github profile in a new tab"><i class="fa-brands fa-github"></i></a>
-                <a href="" target="_blank"><i class="fa-solid fa-envelope"></i></a>
-            </div>
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <span>&copy Carlos Felipe Capobianco Sandoli
+          </span>
         </div>
+        <div class="col-md-6">
+          <a href="https://www.linkedin.com/in/felipesandoli/" target="_blank" aria-label="Opens site owner linkedin profile in a new tab">
+            <i class="fa-brands fa-linkedin">
+            </i>
+          </a>
+          <a href="https://github.com/felipesandoli" target="_blank" aria-label="Opens site owner github profile in a new tab">
+            <i class="fa-brands fa-github">
+            </i>
+          </a>
+          <a href="" target="_blank">
+            <i class="fa-solid fa-envelope">
+            </i>
+          </a>
+        </div>
+      </div>
     </footer>
-    <script src="https://kit.fontawesome.com/f6243e1b74.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="{% static 'js/script.js' %}"></script>
-</body>
+    <script src="https://kit.fontawesome.com/f6243e1b74.js" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="{% static 'js/script.js' %}">
+    </script>
+  </body>
 </html>
