@@ -34,10 +34,11 @@
         <button type="submit" class="event-info-btn delete-btn">Delete
         </button>
       </form>
-      <a href="{% url 'my_events' %}" class="event-btn-a">
-        <button class="d-block event-info-btn">Back to My Events
-        </button>
-      </a>
+      <form action="{% url 'my_events' %}">
+        <button class="d-block event-info-btn">
+          Back to My Events
+      </button>
+      </form>
     </div>
   </div>
 </div>

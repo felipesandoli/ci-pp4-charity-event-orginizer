@@ -191,3 +191,10 @@ Adding more information about the organizations responsible for the events could
 This online [HTML Beaultifier](https://htmlbeautify.com/) was used to improve the HTML code readability.
 
 ### HTML Validation
+
+- [Homepage](docs/README_docs/homepage-html-validation.jpg)
+- [Create Event Page](docs/README_docs/create-form-html-validation.jpg)
+- [My Event Page](docs/README_docs/my-events-html-validation.jpg)
+- [Login Page](docs/README_docs/login-html-validation.jpg)
+- [Sign Up Page](docs/README_docs/signup-html-validation.jpg)
+- [Event Details Page](docs/README_docs/event-detail-html-validation.jpg)
