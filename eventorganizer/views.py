@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View, generic
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
@@ -179,10 +180,11 @@ class LeaveEvent(View):
         return redirect(reverse('event_information', args=[event_id]))
 
 
-class MyEvents(generic.ListView):
+class MyEvents(LoginRequiredMixin, generic.ListView):
     model = Event
     paginate_by = 16
     template_name = 'my_events.html'
+    login_url = 'login'
 
     def get_queryset(self):
         events_owned = Event.objects.filter(
