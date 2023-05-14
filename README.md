@@ -14,6 +14,9 @@
 - [Design](#design)
     - [Wireframes](#wireframes)
     - [Agile Methodology](#agile-methodology)
+- [Used Technologies](#used-technologis)
+    - [Languages](#languages)
+    - [Frameworks, Libraries, Softwares and Services](#frameworks-libraries-softwares-and-services)
 
 ## Project Overview
 
@@ -60,3 +63,31 @@ GitHub Projects Kanban board was used to document project development. Issues co
 ![Kanban Board](docs/README_docs/kanban-board.jpg)
 
 Some of the user stories were developed using Test Driven Development, going straight from In progress to Done skipping the Testing stage. Other user stories were tested after development.
+
+## Used Technologis
+
+### Languages
+
+- HTML5
+- CSS3
+- JavaScript
+- Python
+
+### Frameworks, Libraries, Softwares and Services
+
+- Django
+- JQuery
+- Cloudinary
+- Django Crispy Forms
+- Elephant SQL
+- Bootstrap 5
+- Lucid Charts
+- PostgreSQL
+- Psycopg2
+- Gunicorn
+- Heroku
+- Git
+- GitHub
+- Font Awesome
+- Google Fonts
+- Gouger.io (favicon from Font Awesome icon)
