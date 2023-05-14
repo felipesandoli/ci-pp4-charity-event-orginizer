@@ -26,6 +26,8 @@
     - [Editing and Deleting Events](#editing-and-deleting-events)
 - [Future Features and Improvements](#future-features-and-improvements)
 - [Validation](#validation)
+    - [HTML Bealtify](#html-beautify)
+    - [HTML Validation](#html-validation)
 
 ## Project Overview
 
@@ -184,3 +186,8 @@ Adding more information about the organizations responsible for the events could
 
 ## Validation
 
+### HTML Beautify
+
+This online [HTML Beaultifier](https://htmlbeautify.com/) was used to improve the HTML code readability.
+
+### HTML Validation
