@@ -11,6 +11,9 @@
 - [Project Overview](#project-overview)
     - [Project Goals](#project-goals)
     - [User Stories](#user-stories)
+- [Design](#design)
+    - [Wireframes](#wireframes)
+    - [Agile Methodology](#agile-methodology)
 
 ## Project Overview
 
@@ -40,3 +43,15 @@ GitHub Issues was used to document the Epics and User stories used to develop th
     - As a user I can register my interest in participating in an event so that I can save events I'm interested in going in my profile.
     - As a user I can cancel my participation in an event so that I can inform the event organizers that I am no longer attending and remove the event from my list.
     - As a user I can like events so that I can show I am interested in an event.
+
+
+## Design
+
+### Wireframes
+
+The bellow wireframes were created for design the website main pages, which are the home page and the event detail page. The website is responsive and works well with most screens sizes, mobile and lapatops layout were prioritized.
+
+![wireframes](docs/README_docs/wireframes.png)
+
+### Agile Methodology
+
