@@ -19,6 +19,11 @@
     - [Frameworks, Libraries, Softwares and Services](#frameworks-libraries-softwares-and-services)
 - [Features](#features)
     - [Home Page and Navigation](#home-page-and-navigation)
+    - [Create an Event](#create-an-event)
+    - [My Events](#my-events)
+    - [Login, Logout and Sign Up](#login-logout-and-sign-up)
+    - [Event Details Page](#event-details-page)
+    - [Editing and Deleting Events](#editing-and-deleting-events)
 
 ## Project Overview
 
@@ -98,7 +103,7 @@ Some of the user stories were developed using Test Driven Development, going str
 
 ### Home Page and Navigation
 
-The home page consists of a navigation bar with a logo that acts as a link back to the homepage and a menu that collapses into a hamburger button on mobile phones, and a main section where events created and approved are displayed as cards with relevant information. 
+The home page consists of a navigation bar with a logo that acts as a link back to the homepage and a menu that collapses into a hamburger button on mobile phones, and a main section where events created and approved are displayed as cards with relevant information. All cards functions as a link to the event description page
 
 The options in the navigation menu are for creating a new event, view the list of events owned or events the user is participating, and Login/Logout. If the user is not logged in, clicking on the Create Event or My Events options will redirect the user to the login page.
 
@@ -106,3 +111,61 @@ When authenticated, the user is presented a button for joining an event at the b
 
 ![homepage](docs/README_docs/homepage.jpg)
 
+### Create an Event
+
+The Create Event page is a form containing the following fields:
+
+- Event Name
+- Event Type
+- Event Category
+- Summary
+- Description
+- Location, containing address, city and contry
+- Start and Ende Date and Time
+- Option to submit a cover image for the event
+
+Submitting the form successfuly will create an event in the database with some predefined attributes:
+
+- Event owner will be set by the user that made the post request
+- Approved will be set automatically to false. The site admin is responsible for reviewing and approving each event
+- Archived will also be automatically set to false. There is still no functionality that allows the user to archive the event. This can only be done via the admin panel provided by Django.
+- If no image is provided, the image will be set automatically to the text 'default_image'.
+
+On successfull submission of the form, the user is redirected to the home page where a message is displayed to inform the user that the event has been created and is awaiting approval.
+
+![Create Event page](docs/README_docs/create-form.jpg)
+![Create Event Success](docs/README_docs/create-success.jpg)
+
+### My Events
+
+In the my events page the user can see both the events they have created and events they have signed up to participate. All cards functions as a link to the event description page
+
+![My Events Page](docs/README_docs/my-events.jpg)
+
+### Login, Logout and Sign Up
+
+The website has basic authentication functionality, with a login page that contains a link to sign up page. Upun Loging in, out our signing up successfully, the user is always given a feedback through a message on the top of the page.
+
+![Login Page](docs/README_docs/sign-in.jpg)
+![Sign Up Page](docs/README_docs/sign-up.jpg)
+![Log out success message](docs/README_docs/log-out-success.jpg)
+
+### Event Details Page
+
+In the event details page, all the information about the particular event is displayed. This page is only accessible by authenticated users.
+
+Here if the user is not the event owner, they have the option to like or sign up as a participant for that event. If already a participant they can cancel their participation.
+
+Otherwise, if the user is the event owner, they have the option to Update or Delete the event.
+
+![Event Detail Page](docs/README_docs/event-detail.jpg)
+
+### Editing and Deleting Events
+
+The event owner of an event has the ability of editing or deleting that event. By chosing to edit an event, the user is redirect to a form page similar to the event creation page, where all fields are prepopulated. Saving any alteration will make the event subject to admin review and approval again before being displayed in the website.
+
+![Edit event success message](docs/README_docs/edit-event-success.jpg)
+
+Before event deletion the user is redirected to a page where they are shown some information about the event and asked to confirm the event deletion. They can also cancel and return to the My events page.
+
+![Delete confirmation page](docs/README_docs/delete-event.jpg)

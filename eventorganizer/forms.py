@@ -34,3 +34,6 @@ class EventForm(forms.ModelForm):
             'start_time': TimeInput(format='%H:%M'),
             'end_time': TimeInput(format='%H:%M'),
         }
+        labels = {
+            'name': 'Event Name'
+        }
