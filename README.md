@@ -35,6 +35,7 @@
     - [Python PEP8 Validation](#python-pep8-validation)
 - [Deployment](#deployment)
     - [Heroku](#heroku)
+    - [Forking, Creating a Local Clone and Setting Up Local Environment](#forking-creating-a-local-clone-and-setting-up-local-environment)
 
 ## Project Overview
 
@@ -270,5 +271,26 @@ web: gunicorn project_name.wsgi
 
 - Once deployed click on View to open the deployed website.
 
+### Forking, Creating a Local Clone and Setting Up Local Environment
 
+- Login to GitHub and navigate to the project [repository](https://github.com/felipesandoli/ci-pp4-charity-event-orginizer)
+
+- On the top of the page click on Fork and a copy of the repository will be made to your profile.
+
+- On your forked repository click on the Code dropdown, select HTTPS and copy the repository url.
+
+- On your chose command line interface navigate to your working directory and type `git clone` and pasting the copied repository url
+
+- Create a virtual enviroment with:
+ ```
+ python3 -m venv env_name
+ ```
+
+ - Activate your local environment and install dependencies:
+
+ ```
+ pip3 install -r requirements.txt
+ ```
+
+ - Create a env.py file, adding it to .gitigonre and set the above mentioned config vars as environment variables, with the exception of HEROKU_APP.
 
