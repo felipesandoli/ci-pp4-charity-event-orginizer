@@ -36,6 +36,7 @@
 - [Deployment](#deployment)
     - [Heroku](#heroku)
     - [Forking, Creating a Local Clone and Setting Up Local Environment](#forking-creating-a-local-clone-and-setting-up-local-environment)
+- [Credits](#credits)
 
 ## Project Overview
 
@@ -294,3 +295,12 @@ web: gunicorn project_name.wsgi
 
  - Create a env.py file, adding it to .gitigonre and set the above mentioned config vars as environment variables, with the exception of HEROKU_APP.
 
+## Credits
+
+- CI Hello Django Walkthrough project: Using a development variable for configuring settings.py.
+- CI I Think Therefore I Blog walkthrough project: Cloudinary setup and ListView implementation.
+- [MDN](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication#overview) tutorial: User Authentication.
+- [LearnDjango](https://learndjango.com/tutorials/django-signup-tutorial) tutorial: User Sign up.
+- [Eventbrite](https://www.eventbrite.com/)
+: Inspiration for creating an event model, as well as the layout for displaying event information and form for event creation.
+- [Devpress](https://devpress.csdn.net/python/6304b9ec7e6682346619c661.html) tutorial: for redirecting back to the previous page after form submission.
