@@ -36,6 +36,7 @@
 - [Deployment](#deployment)
     - [Heroku](#heroku)
     - [Forking, Creating a Local Clone and Setting Up Local Environment](#forking-creating-a-local-clone-and-setting-up-local-environment)
+- [Bugs](#bugs)
 - [Credits](#credits)
 
 ## Project Overview
@@ -294,6 +295,13 @@ web: gunicorn project_name.wsgi
  ```
 
  - Create a env.py file, adding it to .gitigonre and set the above mentioned config vars as environment variables, with the exception of HEROKU_APP.
+
+## Bugs
+
+- The images used for testing the website were compressed and optimized to improve performance. However if the user uploads an image of large file size when creating an event by submitting the event creation form, performance is reduced when displaying this image. A future fix could be using the Cloudinary API to properly size and process the image before uploading it to the storage.
+
+- One bug found during development was related to using Django location field with the intent of displaying the event location on a map. The map displayed on the django admin page worked well when run locally, but did not load when deplyed to Heroku. As this feature was low priority, I decided to shift the focus to more important features. Now with the main functionality finished, I'm ready for diving into implementing this feature as it will be a great improvement to user experience.
+
 
 ## Credits
 
