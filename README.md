@@ -359,3 +359,5 @@ web: gunicorn project_name.wsgi
 : Inspiration for creating an event model, as well as the layout for displaying event information and form for event creation.
 - [Devpress](https://devpress.csdn.net/python/6304b9ec7e6682346619c661.html) tutorial: for redirecting back to the previous page after form submission.
 - ChaGPT was used to generate 5 event examples to test the functionality of the site with events that resemble real ones.
+
+**NOTE:** Delete and Update functionality can only be performed on an approved event by the creator of that event. To test this functionality, please use the credentials 'test_user' and 'testpassword' for manipulating the Test Event.
