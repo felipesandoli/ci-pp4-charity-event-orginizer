@@ -70,7 +70,7 @@ class TestEventInformationlView(TestCase):
 class TestJoinEventView(TestCase):
     def setUp(self):
         self.username = "testuser"
-        self.password = "tespassword"
+        self.password = "testpassword"
         test_user = User.objects.create_user(
             username=self.username, password="testpassword"
         )
