@@ -360,4 +360,9 @@ web: gunicorn project_name.wsgi
 - [Devpress](https://devpress.csdn.net/python/6304b9ec7e6682346619c661.html) tutorial: for redirecting back to the previous page after form submission.
 - ChaGPT was used to generate 5 event examples to test the functionality of the site with events that resemble real ones.
 
+- [People cleaning a beach](docs/README_docs/event_covers/people-cleaning-a-beach.jpg): [Photo by Ron Lach](https://www.pexels.com/photo/man-in-red-shirt-holding-white-sack-beside-a-boy-in-gray-and-white-shirt-9034668/)
+- [Art Fair](docs/README_docs/event_covers/art-fair.jpg): [Photo by Craig Adderley](https://www.pexels.com/photo/assorted-color-paintings-1670043/)
+- [Women hugging](docs/README_docs/event_covers/cancer-fundraising.jpg): [Photo by Thirdman](https://www.pexels.com/photo/women-hugging-each-other-7659454/)
+- [Volunteer cleaning community](docs/README_docs/event_covers/community-clean.jpg): [Photo by RDNE Stock project](https://www.pexels.com/photo/volunteers-sweeping-the-sidewalk-6647019/)
+
 **NOTE:** Delete and Update functionality can only be performed on an approved event by the creator of that event. To test this functionality, please use the credentials 'test_user' and 'testpassword' for manipulating the Test Event.
