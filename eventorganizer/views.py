@@ -196,6 +196,6 @@ class LikeEvent(View):
             event.likes.remove(request.user)
         else:
             event.likes.add(request.user)
-        # redirect to previous page following devpress tutorial 
+        # redirect to previous page following devpress tutorial
         next = request.POST.get("next", "/")
         return redirect(next)
