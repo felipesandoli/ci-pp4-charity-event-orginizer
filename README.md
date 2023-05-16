@@ -358,3 +358,4 @@ web: gunicorn project_name.wsgi
 - [Eventbrite](https://www.eventbrite.com/)
 : Inspiration for creating an event model, as well as the layout for displaying event information and form for event creation.
 - [Devpress](https://devpress.csdn.net/python/6304b9ec7e6682346619c661.html) tutorial: for redirecting back to the previous page after form submission.
+- ChaGPT was used to generate 5 event examples to test the functionality of the site with events that resemble real ones.
